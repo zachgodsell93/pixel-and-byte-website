@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef, useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import Balancer from "react-wrap-balancer";
@@ -12,10 +12,13 @@ import {
   ModalFooter,
   ModalTrigger,
 } from "@/components/ui/animated-modal";
+import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
 
 export default function HeroSectionWithBeamsAndGrid() {
   const containerRef = useRef<HTMLDivElement>(null);
   const parentRef = useRef<HTMLDivElement>(null);
+  const ref = useRef(null);
+  const isInView = useInView(ref);
 
   return (
     <div
@@ -64,21 +67,45 @@ export default function HeroSectionWithBeamsAndGrid() {
         }}
       />
 
-      <h2 className="text-balance relative z-50 mx-auto mb-4 mt-4 max-w-4xl text-center text-3xl font-semibold tracking-tight text-gray-700 dark:text-neutral-300 md:text-7xl">
+      <h2
+        ref={ref}
+        className="text-balance relative z-50 mx-auto mb-4 mt-4 max-w-4xl text-center text-3xl font-semibold tracking-tight text-gray-700 dark:text-neutral-300 md:text-7xl"
+      >
         <Balancer>
-          Idea to app in weeks,{" "}
-          <div className="relative mx-auto inline-block w-max [filter:drop-shadow(0px_1px_3px_rgba(27,_37,_80,_0.14))]">
-            <div className="text-black [text-shadow:0_0_rgba(0,0,0,0.1)] dark:text-white">
-              <span className="">not months.</span>
+          Idea to app in{" "}
+          <RoughNotationGroup show={isInView}>
+            <RoughNotation
+              type="highlight"
+              animationDuration={2000}
+              iterations={3}
+              color="#01B1FE"
+            >
+              weeks,
+            </RoughNotation>{" "}
+            <div className="relative mx-auto inline-block w-max [filter:drop-shadow(0px_1px_3px_rgba(27,_37,_80,_0.14))]">
+              <div className="text-black [text-shadow:0_0_rgba(0,0,0,0.1)] dark:text-white">
+                <span className="">
+                  not{" "}
+                  <RoughNotation
+                    type="crossed-off"
+                    animationDuration={2000}
+                    strokeWidth={5}
+                    iterations={3}
+                    color="#FF6904"
+                  >
+                    months
+                  </RoughNotation>
+                </span>
+              </div>
             </div>
-          </div>
+          </RoughNotationGroup>
         </Balancer>
       </h2>
       <p className="relative z-50 mx-auto mt-4 max-w-lg px-4 text-center text-base/6 text-gray-600 dark:text-gray-200">
         Get the best beam tracking services in the world with our state of the
         art, cutting edge beam detection technology.
       </p>
-      <div className="mb-10 mt-8 flex w-full flex-col items-center justify-center gap-4 px-8 sm:flex-row md:mb-20">
+      <div className="mb-10 mt-8 flex w-full flex-row items-center justify-center gap-4 px-8 sm:flex-row md:mb-20">
         {/* <Link
           href="#"
           className="group relative z-20 flex h-10 w-full cursor-pointer items-center justify-center space-x-2 rounded-lg bg-pb-blue p-px px-4 py-2 text-center text-sm font-semibold leading-6 text-white no-underline transition duration-200 dark:bg-white dark:text-black sm:w-52"
@@ -99,7 +126,7 @@ export default function HeroSectionWithBeamsAndGrid() {
       >
         <div className="rounded-[24px] border border-neutral-200 bg-white p-2 dark:border-neutral-700 dark:bg-black">
           <Image
-            src="https://assets.aceternity.com/pro/aceternity-landing.webp"
+            src="/images/dashboard.png"
             alt="header"
             width={1920}
             height={1080}

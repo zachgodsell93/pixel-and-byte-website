@@ -14,19 +14,19 @@ export default function Navbar() {
     },
     {
       name: "App Development",
-      link: "#",
+      link: "/app-development",
     },
     {
       name: "Web Development",
-      link: "#",
+      link: "/web-development",
     },
     {
       name: "About Us",
-      link: "#",
+      link: "/about",
     },
     {
       name: "Contact",
-      link: "#",
+      link: "/contact",
     },
   ];
 

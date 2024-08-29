@@ -1,27 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-
+import moment from "moment";
 export default function Footer() {
   const pages = [
     {
-      title: "All Products",
+      title: "App Development",
       href: "#",
     },
     {
-      title: "Studio",
+      title: "Web App Development",
       href: "#",
     },
     {
-      title: "Clients",
-      href: "#",
-    },
-    {
-      title: "Pricing",
-      href: "#",
-    },
-    {
-      title: "Blog",
+      title: "Web Development",
       href: "#",
     },
   ];
@@ -33,10 +25,6 @@ export default function Footer() {
     },
     {
       title: "Instagram",
-      href: "#",
-    },
-    {
-      title: "Twitter",
       href: "#",
     },
     {
@@ -61,15 +49,15 @@ export default function Footer() {
 
   const signups = [
     {
-      title: "Sign Up",
+      title: "About",
       href: "#",
     },
     {
-      title: "Login",
+      title: "Contact",
       href: "#",
     },
     {
-      title: "Forgot Password",
+      title: "Book a call",
       href: "#",
     },
   ];
@@ -82,13 +70,14 @@ export default function Footer() {
           </div>
 
           <div className="mt-2 ml-2">
-            &copy; copyright DevStudios 2024. All rights reserved.
+            &copy; copyright Pixel & Byte {moment().year()}. All rights
+            reserved.
           </div>
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 items-start mt-10 sm:mt-0 md:mt-0">
           <div className="flex justify-center space-y-4 flex-col w-full">
             <p className="transition-colors hover:text-text-neutral-800 text-neutral-600 dark:text-neutral-300 font-bold">
-              Pages
+              What we do
             </p>
             <ul className="transition-colors hover:text-text-neutral-800 text-neutral-600 dark:text-neutral-300 list-none space-y-4">
               {pages.map((page, idx) => (

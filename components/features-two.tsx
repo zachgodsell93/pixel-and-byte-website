@@ -1,74 +1,82 @@
 "use client";
 import { cn } from "@/lib/utils";
 import {
-  IconAdjustmentsBolt,
-  IconCloud,
-  IconCurrencyDollar,
-  IconEaseInOut,
-  IconHeart,
-  IconHelp,
-  IconRouteAltLeft,
-  IconTerminal2,
+  IconDevices,
+  IconPalette,
+  IconBrowser,
+  IconServer,
+  IconShoppingCart,
+  IconCode,
+  IconCloudUpload,
+  IconLifebuoy,
 } from "@tabler/icons-react";
+import { BorderBeam } from "./magicui/border-beam";
+import SparklesText from "./magicui/sparkles-text";
+
+const features = [
+  {
+    title: "Cross-Platform App Development",
+    description:
+      "Your app, everywhere. We build apps that work seamlessly across all platforms, so you reach your audience wherever they are.",
+    icon: <IconDevices />,
+  },
+  {
+    title: "UI/UX Design",
+    description:
+      "Designs that make your users smile. Our design team crafts user interfaces that are as intuitive as they are beautiful, making your users feel right at home.",
+    icon: <IconPalette />,
+  },
+  {
+    title: "Responsive Web Development",
+    description:
+      "Your website, perfectly sized for any device. We ensure your website looks and works great, whether it's on a massive desktop screen or a tiny smartphone.",
+    icon: <IconBrowser />,
+  },
+  {
+    title: "API & Backend Development",
+    description:
+      "The backbone of your digital empire. We build robust backends and seamless APIs to keep your app or website running like a well-oiled machine.",
+    icon: <IconServer />,
+  },
+  {
+    title: "eCommerce Solutions",
+    description:
+      "Selling made simple. From product pages to payment gateways, we create eCommerce platforms that convert visitors into customers.",
+    icon: <IconShoppingCart />,
+  },
+  {
+    title: "Custom Software Development",
+    description:
+      "Your unique challenges, our custom solutions. If you can dream it, we can build it—tailored software that fits your business like a glove.",
+    icon: <IconCode />,
+  },
+  {
+    title: "Cloud Integration & Migration",
+    description:
+      "Your data, safe and sound in the cloud. We help you move to the cloud or optimize your existing cloud setup, ensuring scalability and security.",
+    icon: <IconCloudUpload />,
+  },
+  {
+    title: "Ongoing Maintenance & Support",
+    description:
+      "We’ve got your back, 24/7. From bug fixes to feature updates, our team is here to support your project every step of the way.",
+    icon: <IconLifebuoy />,
+  },
+];
 
 export default function FeaturesTwo() {
-  const features = [
-    {
-      title: "Built for developers",
-      description:
-        "Built for engineers, developers, dreamers, thinkers and doers.",
-      icon: <IconTerminal2 />,
-    },
-    {
-      title: "Ease of use",
-      description:
-        "It's as easy as using an Apple, and as expensive as buying one.",
-      icon: <IconEaseInOut />,
-    },
-    {
-      title: "Pricing like no other",
-      description:
-        "Our prices are best in the market. No cap, no lock, no credit card required.",
-      icon: <IconCurrencyDollar />,
-    },
-    {
-      title: "100% Uptime guarantee",
-      description: "We just cannot be taken down by anyone.",
-      icon: <IconCloud />,
-    },
-    {
-      title: "Multi-tenant Architecture",
-      description: "You can simply share passwords instead of buying new seats",
-      icon: <IconRouteAltLeft />,
-    },
-    {
-      title: "24/7 Customer Support",
-      description:
-        "We are available a 100% of the time. Atleast our AI Agents are.",
-      icon: <IconHelp />,
-    },
-    {
-      title: "Money back guarantee",
-      description:
-        "If you donot like EveryAI, we will convince you to like us.",
-      icon: <IconAdjustmentsBolt />,
-    },
-    {
-      title: "And everything else",
-      description: "I just ran out of copy ideas. Accept my sincere apologies",
-      icon: <IconHeart />,
-    },
-  ];
   return (
     <div className="relative z-20 py-10 lg:py-10 max-w-7xl mx-auto">
       <div className="px-8">
         <h2 className="font-sans text-bold text-xl text-center md:text-4xl w-fit mx-auto font-bold tracking-tight text-neutral-800 dark:text-neutral-100">
-          What we do best
+          <SparklesText
+            className="font-sans text-bold text-xl text-center md:text-4xl w-fit mx-auto font-bold tracking-tight"
+            text="What we do"
+          />
         </h2>
 
         <p className="text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
-          We are a team of developers, who have been in your shoes. We know what
-          you need, and we are here to help you with that.
+          From idea to execution, we’re here to make your project shine.
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  z-10 py-10 max-w-7xl mx-auto">
@@ -109,7 +117,7 @@ const Feature = ({
         {icon}
       </div>
       <div className="text-lg font-bold mb-2 relative z-10 px-10">
-        <div className="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-neutral-300 dark:bg-neutral-700 group-hover/feature:bg-blue-500 transition-all duration-200 origin-center" />
+        <div className="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-neutral-300 dark:bg-neutral-700 group-hover/feature:bg-pb-orange transition-all duration-200 origin-center" />
         <span className="group-hover/feature:translate-x-2 transition duration-200 inline-block text-neutral-800 dark:text-neutral-100">
           {title}
         </span>

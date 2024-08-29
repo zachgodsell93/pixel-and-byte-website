@@ -1,10 +1,15 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { IconMessageCircleQuestion } from "@tabler/icons-react";
-import React from "react";
+import React, { useRef } from "react";
 import { HiArrowRight } from "react-icons/hi2";
+import { BorderBeam } from "./magicui/border-beam";
+import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
+import { useInView } from "framer-motion";
 
 export function Cta() {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
   return (
     <section className="w-full grid grid-cols-1 md:grid-cols-3 my-10 md:my-20 justify-start relative z-20 max-w-7xl mx-auto bg-gradient-to-br from-gray-100 to-white dark:from-neutral-900 dark:to-neutral-950">
       <GridLineHorizontal className="top-0" offset="200px" />
@@ -12,16 +17,29 @@ export function Cta() {
       <GridLineVertical className="left-0" offset="80px" />
       <GridLineVertical className="left-auto right-0" offset="80px" />
       <div className="md:col-span-2 p-8 md:p-14">
-        <h2 className="text-left text-neutral-500 dark:text-neutral-200 text-xl md:text-3xl tracking-tight font-medium">
+        <h2
+          ref={ref}
+          className="text-left text-neutral-500 dark:text-neutral-200 text-xl md:text-3xl tracking-tight font-medium"
+        >
           Ship products with the{" "}
-          <span className="font-bold text-black dark:text-white">
-            speed of light
-          </span>
+          <RoughNotationGroup show={isInView}>
+            <RoughNotation
+              type="highlight"
+              animationDuration={2000}
+              iterations={3}
+              color="#01B1FE"
+            >
+              <span className="font-bold text-black dark:text-white">
+                {" "}
+                speed of light
+              </span>
+            </RoughNotation>{" "}
+          </RoughNotationGroup>
+          <span className="font-bold text-black dark:text-white"></span>
         </h2>
         <p className="text-left text-neutral-500 mt-4 max-w-lg dark:text-neutral-200 text-xl md:text-3xl tracking-tight font-medium">
-          Get the best in class <span className="text-sky-700">support</span>{" "}
-          for the most advanced{" "}
-          <span className="text-indigo-700">products</span>.
+          Get the best in class <span className="text-pb-orange">support</span>{" "}
+          for the most advanced <span className="text-pb-blue">products</span>.
         </p>
 
         <div className="flex items-start sm:items-center flex-col sm:flex-row sm:gap-4">
@@ -30,8 +48,8 @@ export function Cta() {
             <HiArrowRight className="text-white group-hover:translate-x-1 stroke-[1px] h-3 w-3 mt-0.5 transition-transform duration-200" />
           </button>
           <button className="mt-8 flex space-x-2 items-center group text-base px-4 py-2 rounded-lg  text-black dark:text-white border border-neutral-200 dark:border-neutral-800 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset]">
-            <span>Talk to us</span>
-            <IconMessageCircleQuestion className="text-black dark:text-white group-hover:translate-x-1 stroke-[1px] h-3 w-3 mt-0.5 transition-transform duration-200" />
+            <span>Our Work</span>
+            {/* <IconMessageCircleQuestion className="text-black dark:text-white group-hover:translate-x-1 stroke-[1px] h-3 w-3 mt-0.5 transition-transform duration-200" /> */}
           </button>
         </div>
       </div>
@@ -50,6 +68,14 @@ export function Cta() {
           </p>
         </div>
       </div>
+      <BorderBeam
+        size={200}
+        duration={8}
+        borderWidth={3}
+        colorFrom="#01B1FE"
+        colorTo="#FF6904"
+        delay={9}
+      />
     </section>
   );
 }
