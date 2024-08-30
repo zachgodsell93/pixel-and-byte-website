@@ -5,6 +5,7 @@ import { FeaturesSection } from "@/components/features";
 import FeaturesTwo from "@/components/features-two";
 import { Cta } from "@/components/cta";
 import { TracingBeam } from "@/components/ui/tracing-beam";
+import FAQSection from "@/components/faq";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <BentoFeatures />
         <FeaturesTwo />
         <Cta />
+        <FAQSection />
       </TracingBeam>
     </main>
   );
