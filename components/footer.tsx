@@ -148,7 +148,7 @@ export default function Footer() {
         </div>
       </div>
       <p className="text-center mt-20 text-5xl md:text-9xl lg:text-[12rem] xl:text-[13rem] font-bold bg-clip-text text-transparent bg-gradient-to-b from-pb-orange/20 dark:from-pb-blue to-pb-blue/30 dark:to-neutral-800 inset-x-0">
-        pixel & byte
+        pixel and byte
       </p>
     </div>
   );
@@ -167,7 +167,7 @@ const Logo = () => {
         height={30}
       />
       <span className="font-medium text-black dark:text-white">
-        pixel & byte
+        pixel and byte
       </span>
     </Link>
   );

@@ -17,7 +17,7 @@ export default function Navbar() {
   const navItems = [
     {
       name: "Our Work",
-      link: "#",
+      link: "/our-work",
     },
     {
       name: "App Development",
@@ -165,6 +165,7 @@ const Logo = () => {
 
 const AppConsultationModal = () => {
   const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
+  const [wantReachOut, setWantReachOut] = useState(false);
 
   const features = [
     "User Authentication",
@@ -188,26 +189,16 @@ const AppConsultationModal = () => {
   return (
     <Modal>
       <ModalTrigger className="hidden md:block px-8 py-2 text-sm font-bold rounded-md bg-pb-orange dark:bg-white dark:text-black text-white shadow-[0px_-2px_0px_0px_rgba(255,255,255,0.4)_inset]">
-        Free App Consultation
+        Free App Cost Calculator
       </ModalTrigger>
       <ModalBody>
         <ModalContent>
           <h4 className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-100 font-bold text-center mb-8">
-            Request a Free App Consultation
+            Free App Cost Estimate
           </h4>
           <div className="space-y-4">
-            <input
-              type="text"
-              placeholder="Your Name"
-              className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white"
-            />
-            <input
-              type="email"
-              placeholder="Your Email"
-              className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white"
-            />
             <div>
-              <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-2">
+              <p className="text-sm font-bold text-neutral-600 dark:text-neutral-400 mb-2">
                 Select desired features:
               </p>
               <div className="grid grid-cols-2 gap-2">
@@ -227,6 +218,51 @@ const AppConsultationModal = () => {
                 ))}
               </div>
             </div>
+            <div className="flex flex-col">
+              <label className="text-sm mb-4 font-bold text-neutral-600 dark:text-neutral-400">
+                Expected Number of Users(in the first 6 months)
+              </label>
+              <select className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white">
+                <option value="0-1000">0-1000</option>
+                <option value="1001-5000">1001-5000</option>
+                <option value="5001-10000">5001-10000</option>
+                <option value="10000+">10000+</option>
+              </select>
+            </div>
+            <div className="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                id="wantReachOut"
+                checked={wantReachOut}
+                onChange={(e) => setWantReachOut(e.target.checked)}
+                className="form-checkbox"
+              />
+              <label
+                htmlFor="wantReachOut"
+                className="text-sm text-neutral-600 dark:text-neutral-400"
+              >
+                Do you want someone to reach out?
+              </label>
+            </div>
+            {wantReachOut && (
+              <>
+                <input
+                  type="text"
+                  placeholder="Name"
+                  className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white"
+                />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white"
+                />
+                <input
+                  type="tel"
+                  placeholder="Mobile Number (optional)"
+                  className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white"
+                />
+              </>
+            )}
           </div>
         </ModalContent>
         <ModalFooter className="space-x-2">

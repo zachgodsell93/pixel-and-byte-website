@@ -74,7 +74,7 @@ const features = [
   //   },
 ];
 
-export default function FeaturesWithStickyScroll() {
+export default function WebDevelopmentStickyScroll() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -116,17 +116,17 @@ export default function FeaturesWithStickyScroll() {
       <div className="px-6 flex flex-col items-center text-center">
         <RoughNotationGroup show={isInView}>
           <RoughNotation
-            type="circle"
+            type="underline"
             animationDuration={2000}
             iterations={3}
-            strokeWidth={4}
-            color="#FF6904"
+            strokeWidth={7}
+            color="#01B1FE"
           >
             <h2
               ref={headerRef}
               className="text-balance relative z-50 mx-auto mb-4 mt-4 max-w-4xl text-center text-3xl font-semibold tracking-tight text-gray-700 dark:text-neutral-300 md:text-7xl"
             >
-              App Development
+              Web App Development
             </h2>
           </RoughNotation>
         </RoughNotationGroup>

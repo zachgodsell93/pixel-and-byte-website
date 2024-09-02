@@ -44,37 +44,9 @@ const features = [
       />
     ),
   },
-  //   {
-  //     icon: <IconRocket className="h-8 w-8 text-neutral-200" />,
-  //     title: "Batch generate images with a single click.",
-  //     description:
-  //       "With our state of the art AI, you can generate a batch of images within 10 seconds with absolutely no compute power.",
-  //     content: (
-  //       <div className="relative">
-  //         <div className="-rotate-[10deg]">
-  //           <Image
-  //             src="https://assets.aceternity.com/pro/car-1.jpg"
-  //             alt="car"
-  //             height="500"
-  //             width="500"
-  //             className="rounded-lg"
-  //           />
-  //         </div>
-  //         <div className="absolute inset-0 transform rotate-[10deg]">
-  //           <Image
-  //             src="https://assets.aceternity.com/pro/car-2.jpg"
-  //             alt="car"
-  //             height="500"
-  //             width="500"
-  //             className="rounded-lg"
-  //           />
-  //         </div>
-  //       </div>
-  //     ),
-  //   },
 ];
 
-export default function FeaturesWithStickyScroll() {
+export default function OurWorkStickyScroll() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -83,7 +55,6 @@ export default function FeaturesWithStickyScroll() {
   const backgrounds = ["#1f2937", "#262626", "#1e293b"];
   const headerRef = useRef(null);
   const isInView = useInView(ref);
-
   const [gradient, setGradient] = useState(backgrounds[0]);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
@@ -116,22 +87,22 @@ export default function FeaturesWithStickyScroll() {
       <div className="px-6 flex flex-col items-center text-center">
         <RoughNotationGroup show={isInView}>
           <RoughNotation
-            type="circle"
+            type="box"
             animationDuration={2000}
             iterations={3}
             strokeWidth={4}
-            color="#FF6904"
+            color="#01B1FE"
           >
             <h2
               ref={headerRef}
               className="text-balance relative z-50 mx-auto mb-4 mt-4 max-w-4xl text-center text-3xl font-semibold tracking-tight text-gray-700 dark:text-neutral-300 md:text-7xl"
             >
-              App Development
+              Our Work
             </h2>
           </RoughNotation>
         </RoughNotationGroup>
         {/* <p className="text-neutral-700 text-sm md:text-base max-w-md mx-auto mt-4">
-          Our first in class app development services.
+          See some of our work.
         </p> */}
       </div>
       <StickyScroll content={features} />
