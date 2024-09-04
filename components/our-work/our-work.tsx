@@ -13,35 +13,51 @@ import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
 
 const features = [
   {
-    icon: <IconDeviceMobile className="h-8 w-8 text-neutral-200" />,
-    title: "Cross Platform Development",
-    description:
-      "We develop apps for both Android and iOS. Our apps are built with the latest technologies and are designed to be cross-platform.",
+    // icon: <IconDeviceMobile className="h-8 w-8 text-neutral-200" />,
+    title: "Lay Back and Win Web App",
+    description: "Lay Back and Win's web app for horse and greyhound betting.",
     content: (
       <div className="relative md:pt-32">
         <Image
-          src="/images/stock/cross-dev.jpg"
+          src="/images/work/lbw-web-app.png"
           alt="car"
           height="500"
-          width="500"
+          width="600"
           className="rounded-lg"
         />
       </div>
     ),
   },
   {
-    icon: <IconRocket className="h-8 w-8 text-neutral-200" />,
-    title: "UI Your Customers will love",
+    title: "Thrive Website",
     description:
-      "We develop apps with the latest technologies and are designed to be user-friendly and easy to use.",
+      "Thrive is a personal finance platform that allows users to track their expenses, set financial goals, and receive personalized financial advice.",
     content: (
-      <Image
-        src="/images/stock/great-ui.png"
-        alt="car"
-        height="500"
-        width="500"
-        className="rounded-lg"
-      />
+      <div className="relative md:pt-32">
+        <Image
+          src="/images/work/thrive-site.png"
+          alt="car"
+          height="500"
+          width="600"
+          className="rounded-lg"
+        />
+      </div>
+    ),
+  },
+  {
+    title: "Thrive Web App",
+    description:
+      "Thrive is a personal finance platform that allows users to track their expenses, set financial goals, and receive personalized financial advice.",
+    content: (
+      <div className="relative md:pt-32">
+        <Image
+          src="/images/work/thrive-web-app.png"
+          alt="car"
+          height="500"
+          width="600"
+          className="rounded-lg"
+        />
+      </div>
     ),
   },
 ];
@@ -195,6 +211,9 @@ export const ScrollContent = ({
           <motion.p className="text-lg text-neutral-700 font-regular max-w-sm mt-2">
             {item.description}
           </motion.p>
+          <motion.button className="text-lg bg-pb-blue text-white px-4 py-2 rounded-md mt-4">
+            Visit
+          </motion.button>
         </motion.div>
       </div>
       <motion.div
