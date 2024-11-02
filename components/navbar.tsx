@@ -12,6 +12,7 @@ import {
   ModalContent,
   ModalFooter,
 } from "@/components/ui/animated-modal";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const navItems = [
@@ -48,6 +49,7 @@ export default function Navbar() {
 const DesktopNav = ({ navItems }: any) => {
   const [hovered, setHovered] = useState<number | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,7 +78,11 @@ const DesktopNav = ({ navItems }: any) => {
         {navItems.map((navItem: any, idx: number) => (
           <Link
             onMouseEnter={() => setHovered(idx)}
-            className="text-neutral-600 dark:text-neutral-300 relative px-4 py-2"
+            className={cn(
+              "text-neutral-600 dark:text-neutral-300 relative px-4 py-2",
+              pathname === navItem.link &&
+                "border-2 border-pb-blue rounded-full"
+            )}
             key={`link=${idx}`}
             href={navItem.link}
           >
@@ -168,14 +174,14 @@ const AppConsultationModal = () => {
   const [wantReachOut, setWantReachOut] = useState(false);
 
   const features = [
-    "User Authentication",
-    "Push Notifications",
-    "In-App Purchases",
-    "Social Media Integration",
-    "Offline Mode",
-    "Analytics",
-    "Geolocation",
-    "Cloud Sync",
+    { name: "User Authentication", cost: 1000 },
+    { name: "Push Notifications", cost: 1500 },
+    { name: "In-App Purchases", cost: 1000 },
+    { name: "Social Media Integration", cost: 1000 },
+    { name: "Offline Mode", cost: 500 },
+    { name: "Analytics", cost: 2000 },
+    { name: "Geolocation", cost: 2500 },
+    { name: "Cloud Sync", cost: 1500 },
   ];
 
   const handleFeatureToggle = (feature: string) => {
@@ -204,16 +210,16 @@ const AppConsultationModal = () => {
               <div className="grid grid-cols-2 gap-2">
                 {features.map((feature) => (
                   <label
-                    key={feature}
+                    key={feature.name}
                     className="flex items-center space-x-2 text-sm text-neutral-600 dark:text-neutral-400"
                   >
                     <input
                       type="checkbox"
-                      checked={selectedFeatures.includes(feature)}
-                      onChange={() => handleFeatureToggle(feature)}
+                      checked={selectedFeatures.includes(feature.name)}
+                      onChange={() => handleFeatureToggle(feature.name)}
                       className="form-checkbox"
                     />
-                    <span>{feature}</span>
+                    <span>{feature.name}</span>
                   </label>
                 ))}
               </div>

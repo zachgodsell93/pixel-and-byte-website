@@ -13,13 +13,13 @@ import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
 
 const features = [
   {
-    // icon: <IconDeviceMobile className="h-8 w-8 text-neutral-200" />,
-    title: "Lay Back and Win Web App",
-    description: "Lay Back and Win's web app for horse and greyhound betting.",
+    title: "PSI Promo Products Custom Order Request",
+    description:
+      "PSI Promo products offer custom promotional items for businesses. They required a customer site that could handle a large number of custom items and features that connected to their Salesforce CRM instead of a standard CMS like shopify.",
     content: (
       <div className="relative md:pt-32">
         <Image
-          src="/images/work/lbw-web-app.png"
+          src="/images/work/thrive-web-app.png"
           alt="car"
           height="500"
           width="600"
@@ -44,6 +44,23 @@ const features = [
       </div>
     ),
   },
+  {
+    // icon: <IconDeviceMobile className="h-8 w-8 text-neutral-200" />,
+    title: "Lay Back and Win Web App",
+    description: "Lay Back and Win's web app for horse and greyhound betting.",
+    content: (
+      <div className="relative md:pt-32">
+        <Image
+          src="/images/work/lbw-web-app.png"
+          alt="car"
+          height="500"
+          width="600"
+          className="rounded-lg"
+        />
+      </div>
+    ),
+  },
+
   {
     title: "Thrive Web App",
     description:
