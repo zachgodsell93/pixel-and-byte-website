@@ -7,8 +7,9 @@ import Footer from "@/components/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Pixel & Byte",
-  description: "Brisbane Web App and Salesforce Consultants",
+  title: "Pixel & Byte | App Development & Website Design",
+  description:
+    "Pixel & Byte is a Brisbane-based company that specializes in app development and website design.",
 };
 
 export default function RootLayout({

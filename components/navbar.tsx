@@ -164,14 +164,18 @@ const Logo = () => {
       href="/"
       className="font-normal flex space-x-2 items-center text-sm mr-4  text-black px-2 py-1  relative z-20"
     >
-      <Image src="/logo-light.png" alt="logo" width={170} height={30} />
+      <Image src="/images/logo-new.png" alt="logo" width={50} height={30} />
     </Link>
   );
 };
 
 const AppConsultationModal = () => {
   const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [mobile, setMobile] = useState("");
   const [wantReachOut, setWantReachOut] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const features = [
     { name: "User Authentication", cost: 1000 },
@@ -190,6 +194,10 @@ const AppConsultationModal = () => {
         ? prev.filter((f) => f !== feature)
         : [...prev, feature]
     );
+  };
+
+  const handleSubmit = async () => {
+    setLoading(true);
   };
 
   return (
@@ -235,48 +243,58 @@ const AppConsultationModal = () => {
                 <option value="10000+">10000+</option>
               </select>
             </div>
-            <div className="flex items-center space-x-2">
-              <input
-                type="checkbox"
-                id="wantReachOut"
-                checked={wantReachOut}
-                onChange={(e) => setWantReachOut(e.target.checked)}
-                className="form-checkbox"
-              />
-              <label
-                htmlFor="wantReachOut"
-                className="text-sm text-neutral-600 dark:text-neutral-400"
-              >
-                Do you want someone to reach out?
+            <div className="flex flex-col gap-y-4">
+              <label className="text-sm mb-0 font-bold text-neutral-600 dark:text-neutral-400">
+                Your Details
               </label>
+              <input
+                type="text"
+                placeholder="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white"
+              />
+              <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white"
+              />
+              <input
+                type="tel"
+                placeholder="Mobile Number (optional)"
+                value={mobile}
+                onChange={(e) => setMobile(e.target.value)}
+                className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white"
+              />
+              <div className="flex items-center space-x-2">
+                <input
+                  type="checkbox"
+                  id="wantReachOut"
+                  checked={wantReachOut}
+                  onChange={(e) => setWantReachOut(e.target.checked)}
+                  className="form-checkbox"
+                />
+                <label
+                  htmlFor="wantReachOut"
+                  className="text-sm text-neutral-600 dark:text-neutral-400"
+                >
+                  Do you want someone to reach out?
+                </label>
+              </div>
             </div>
-            {wantReachOut && (
-              <>
-                <input
-                  type="text"
-                  placeholder="Name"
-                  className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white"
-                />
-                <input
-                  type="email"
-                  placeholder="Email"
-                  className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white"
-                />
-                <input
-                  type="tel"
-                  placeholder="Mobile Number (optional)"
-                  className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white"
-                />
-              </>
-            )}
           </div>
         </ModalContent>
         <ModalFooter className="space-x-2">
           <button className="px-4 py-2 bg-gray-200 text-black dark:bg-neutral-700 dark:text-white rounded-md">
             Cancel
           </button>
-          <button className="px-4 py-2 bg-pb-orange text-white dark:bg-white dark:text-black rounded-md">
-            Submit
+          <button
+            className="px-4 py-2 bg-pb-orange text-white dark:bg-white dark:text-black rounded-md"
+            onClick={handleSubmit}
+          >
+            {loading ? "Submitting..." : "Submit"}
           </button>
         </ModalFooter>
       </ModalBody>

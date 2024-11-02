@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { IconMailFilled } from "@tabler/icons-react";
 import { useId } from "react";
 import { cn } from "@/lib/utils";
@@ -7,6 +7,38 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 export function ContactFormGridWithDetails() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState(false);
+  const [formData, setFormData] = useState({
+    email: "",
+    name: "",
+    message: "",
+    company: "",
+    enquiringAbout: "",
+  });
+
+  const handleSubmit = async () => {
+    setIsLoading(true);
+    setError(false);
+    try {
+      const response = await fetch("/api/submit-contact", {
+        method: "POST",
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Submission failed");
+      }
+
+      setIsSuccess(true);
+    } catch (err) {
+      setError(true);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 px-4 py-10 md:px-6 md:py-20 lg:grid-cols-2">
       <div className="relative flex flex-col items-center overflow-hidden lg:items-start">
@@ -50,83 +82,138 @@ export function ContactFormGridWithDetails() {
       </div>
       <div className="relative mx-auto flex w-full max-w-2xl flex-col items-start gap-4 overflow-hidden rounded-3xl bg-gradient-to-b from-gray-100 to-gray-200 p-4 dark:from-neutral-900 dark:to-neutral-950 sm:p-10">
         <Grid size={20} />
-        <div className="relative z-20 mb-4 w-full">
-          <label
-            className="mb-2 inline-block text-sm font-medium text-neutral-600 dark:text-neutral-300"
-            htmlFor="name"
-          >
-            Full name
-          </label>
-          <input
-            id="name"
-            type="text"
-            placeholder="Your name"
-            className="h-10 w-full rounded-md border border-transparent bg-white pl-4 text-sm text-neutral-700 placeholder-neutral-500 shadow-input outline-none focus:outline-none focus:ring-2 focus:ring-neutral-800 active:outline-none dark:border-neutral-800 dark:bg-neutral-800 dark:text-white"
-          />
-        </div>
-        <div className="relative z-20 mb-4 w-full">
-          <label
-            className="mb-2 inline-block text-sm font-medium text-neutral-600 dark:text-neutral-300"
-            htmlFor="email"
-          >
-            Email Address
-          </label>
-          <input
-            id="email"
-            type="email"
-            placeholder="your@email.com"
-            className="h-10 w-full rounded-md border border-transparent bg-white pl-4 text-sm text-neutral-700 placeholder-neutral-500 shadow-input outline-none focus:outline-none focus:ring-2 focus:ring-neutral-800 active:outline-none dark:border-neutral-800 dark:bg-neutral-800 dark:text-white"
-          />
-        </div>
-        <div className="relative z-20 mb-4 w-full">
-          <label
-            className="mb-2 inline-block text-sm font-medium text-neutral-600 dark:text-neutral-300"
-            htmlFor="company"
-          >
-            Company
-          </label>
-          <input
-            id="company"
-            type="text"
-            placeholder="Optional"
-            className="h-10 w-full rounded-md border border-transparent bg-white pl-4 text-sm text-neutral-700 placeholder-neutral-500 shadow-input outline-none focus:outline-none focus:ring-2 focus:ring-neutral-800 active:outline-none dark:border-neutral-800 dark:bg-neutral-800 dark:text-white"
-          />
-        </div>
-        <div className="relative z-20 mb-4 w-full">
-          <label
-            className="mb-2 inline-block text-sm font-medium text-neutral-600 dark:text-neutral-300"
-            htmlFor="company"
-          >
-            Enquiring About
-          </label>
-          <select
-            id="enquiring-about"
-            className="h-10 w-full rounded-md border border-transparent bg-white pl-4 text-sm text-neutral-700 placeholder-neutral-500 shadow-input outline-none focus:outline-none focus:ring-2 focus:ring-neutral-800 active:outline-none dark:border-neutral-800 dark:bg-neutral-800 dark:text-white"
-          >
-            <option value="">Select an option</option>
-            <option value="option1">App Development</option>
-            <option value="option2">Website Development</option>
-            <option value="option3">Support</option>
-            <option value="option4">Other</option>
-          </select>
-        </div>
-        <div className="relative z-20 mb-4 w-full">
-          <label
-            className="mb-2 inline-block text-sm font-medium text-neutral-600 dark:text-neutral-300"
-            htmlFor="message"
-          >
-            Message
-          </label>
-          <textarea
-            id="message"
-            rows={5}
-            placeholder="Type your message here"
-            className="w-full rounded-md border border-transparent bg-white pl-4 pt-4 text-sm text-neutral-700 placeholder-neutral-500 shadow-input outline-none focus:outline-none focus:ring-2 focus:ring-neutral-800 active:outline-none dark:border-neutral-800 dark:bg-neutral-800 dark:text-white"
-          />
-        </div>
-        <button className="relative z-10 flex items-center justify-center rounded-md border border-transparent bg-neutral-800 px-4 py-2 text-sm font-medium text-white shadow-[0px_1px_0px_0px_#FFFFFF20_inset] transition duration-200 hover:bg-neutral-900 md:text-sm">
-          Submit
-        </button>
+
+        {isSuccess ? (
+          <div className="relative z-20 w-full text-center py-8">
+            <h3 className="text-2xl font-bold text-green-500 mb-2">
+              Message sent successfully!
+            </h3>
+            <p className="text-neutral-600 dark:text-neutral-400">
+              Thank you for reaching out. We&apos;ll get back to you soon.
+            </p>
+          </div>
+        ) : error ? (
+          <div className="relative z-20 w-full text-center py-8">
+            <h3 className="text-2xl font-bold text-red-500 mb-2">
+              Submission Error
+            </h3>
+            <p className="text-neutral-600 dark:text-neutral-400">
+              There was an issue submitting your enquiry. If this persists,
+              please email{" "}
+              <a
+                href="mailto:zach@zachgodslell.com"
+                className="text-blue-500 hover:text-blue-600 underline"
+              >
+                zach@zachgodslell.com
+              </a>
+            </p>
+          </div>
+        ) : (
+          <>
+            <div className="relative z-20 mb-4 w-full">
+              <label
+                className="mb-2 inline-block text-sm font-medium text-neutral-600 dark:text-neutral-300"
+                htmlFor="name"
+              >
+                Full name
+              </label>
+              <input
+                id="name"
+                type="text"
+                placeholder="Your name"
+                className="h-10 w-full rounded-md border border-transparent bg-white pl-4 text-sm text-neutral-700 placeholder-neutral-500 shadow-input outline-none focus:outline-none focus:ring-2 focus:ring-neutral-800 active:outline-none dark:border-neutral-800 dark:bg-neutral-800 dark:text-white"
+                value={formData.name}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
+              />
+            </div>
+            <div className="relative z-20 mb-4 w-full">
+              <label
+                className="mb-2 inline-block text-sm font-medium text-neutral-600 dark:text-neutral-300"
+                htmlFor="email"
+              >
+                Email Address
+              </label>
+              <input
+                id="email"
+                type="email"
+                placeholder="your@email.com"
+                className="h-10 w-full rounded-md border border-transparent bg-white pl-4 text-sm text-neutral-700 placeholder-neutral-500 shadow-input outline-none focus:outline-none focus:ring-2 focus:ring-neutral-800 active:outline-none dark:border-neutral-800 dark:bg-neutral-800 dark:text-white"
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
+              />
+            </div>
+            <div className="relative z-20 mb-4 w-full">
+              <label
+                className="mb-2 inline-block text-sm font-medium text-neutral-600 dark:text-neutral-300"
+                htmlFor="company"
+              >
+                Company
+              </label>
+              <input
+                id="company"
+                type="text"
+                placeholder="Optional"
+                className="h-10 w-full rounded-md border border-transparent bg-white pl-4 text-sm text-neutral-700 placeholder-neutral-500 shadow-input outline-none focus:outline-none focus:ring-2 focus:ring-neutral-800 active:outline-none dark:border-neutral-800 dark:bg-neutral-800 dark:text-white"
+                value={formData.company}
+                onChange={(e) =>
+                  setFormData({ ...formData, company: e.target.value })
+                }
+              />
+            </div>
+            <div className="relative z-20 mb-4 w-full">
+              <label
+                className="mb-2 inline-block text-sm font-medium text-neutral-600 dark:text-neutral-300"
+                htmlFor="company"
+              >
+                Enquiring About
+              </label>
+              <select
+                id="enquiring-about"
+                className="h-10 w-full rounded-md border border-transparent bg-white pl-4 text-sm text-neutral-700 placeholder-neutral-500 shadow-input outline-none focus:outline-none focus:ring-2 focus:ring-neutral-800 active:outline-none dark:border-neutral-800 dark:bg-neutral-800 dark:text-white"
+                value={formData.enquiringAbout}
+                onChange={(e) =>
+                  setFormData({ ...formData, enquiringAbout: e.target.value })
+                }
+              >
+                <option value="">Select an option</option>
+                <option value="app-development">App Development</option>
+                <option value="website-development">Website Development</option>
+                <option value="support">Support</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div className="relative z-20 mb-4 w-full">
+              <label
+                className="mb-2 inline-block text-sm font-medium text-neutral-600 dark:text-neutral-300"
+                htmlFor="message"
+              >
+                Message
+              </label>
+              <textarea
+                id="message"
+                rows={5}
+                placeholder="Type your message here"
+                className="w-full rounded-md border border-transparent bg-white pl-4 pt-4 text-sm text-neutral-700 placeholder-neutral-500 shadow-input outline-none focus:outline-none focus:ring-2 focus:ring-neutral-800 active:outline-none dark:border-neutral-800 dark:bg-neutral-800 dark:text-white"
+                value={formData.message}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
+              />
+            </div>
+            <button
+              type="submit"
+              onClick={handleSubmit}
+              disabled={isLoading}
+              className="relative z-10 flex items-center justify-center rounded-md border border-transparent bg-neutral-800 px-4 py-2 text-sm font-medium text-white shadow-[0px_1px_0px_0px_#FFFFFF20_inset] transition duration-200 hover:bg-neutral-900 disabled:opacity-50 disabled:cursor-not-allowed md:text-sm"
+            >
+              {isLoading ? "Sending..." : "Submit"}
+            </button>
+          </>
+        )}
       </div>
     </div>
   );
