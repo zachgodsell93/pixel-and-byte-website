@@ -184,21 +184,24 @@ const AppConsultationModal = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState<boolean | null>(null);
   const [currentStep, setCurrentStep] = useState(1);
+  const [appCostLoading, setAppCostLoading] = useState(false);
+  const [appCost, setAppCost] = useState<number | null>(null);
 
   const steps = [
     { id: 1, title: "Platform" },
     { id: 2, title: "User Engagement" },
     { id: 3, title: "Monetization" },
     { id: 4, title: "Advanced Features" },
-    { id: 4, title: "Your Details" },
+    { id: 5, title: "Your Details" },
     { id: 5, title: "Complete" },
   ];
   const totalSteps = steps.length;
 
   const handleNextStep = () => {
-    if (currentStep < totalSteps) {
+    if (currentStep < totalSteps - 1) {
       setCurrentStep(currentStep + 1);
     } else {
+      setCurrentStep(currentStep + 1);
       handleSubmit();
     }
   };
@@ -225,6 +228,7 @@ const AppConsultationModal = () => {
     }
     setLoading(false);
     setTimeout(() => {
+      setAppCost(selectedFeatures.reduce((acc, f) => acc + f.cost, 0));
       setSuccess(null);
     }, 3000);
   };
@@ -245,6 +249,7 @@ const AppConsultationModal = () => {
             handleNextStep={handleNextStep}
             formData={formData}
             setFormData={setFormData}
+            appCost={appCost}
           />
         </ModalContent>
         <ModalFooter className="space-x-2">

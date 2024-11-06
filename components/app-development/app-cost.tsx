@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
-import { Check, ChevronRight } from "lucide-react";
+import { Check, ChevronRight, Loader2 } from "lucide-react";
 import { Separator } from "../ui/separator";
 
 // App Complexity:
@@ -55,6 +55,7 @@ type Props = {
       wantReachOut: boolean;
     }>
   >;
+  appCost: number | null;
 };
 
 export default function AppCost({
@@ -66,6 +67,7 @@ export default function AppCost({
   setSelectedFeatures,
   formData,
   setFormData,
+  appCost,
 }: Props) {
   const [selectedComplexity, setSelectedComplexity] = useState<{
     name: string;
@@ -192,6 +194,7 @@ export default function AppCost({
       {currentStep === 5 && (
         <AppCostFormScreenLast formData={formData} setFormData={setFormData} />
       )}
+      {currentStep === 6 && <AppCostComplete appCost={appCost} />}
     </div>
   );
 }
@@ -217,10 +220,10 @@ const AppComplexityForm = ({
   ];
 
   const expectedUsers = [
-    { name: "0-1000", cost: 0 },
-    { name: "1001-5000", cost: 1000 },
-    { name: "5001-10000", cost: 2000 },
-    { name: "10000+", cost: 3000 },
+    { name: "0-1000", cost: 1000 },
+    { name: "1001-5000", cost: 2000 },
+    { name: "5001-10000", cost: 3000 },
+    { name: "10000+", cost: 5000 },
   ];
   return (
     <>
@@ -311,10 +314,10 @@ const UserEngagementForm = ({
   >;
 }) => {
   const features = [
-    { name: "User Profiles", cost: 1000 },
-    { name: "Messaging/Chat", cost: 2000 },
-    { name: "Ratings/Reviews", cost: 3000 },
-    { name: "Referral Systems", cost: 4000 },
+    { name: "User Profiles", cost: 3000 },
+    { name: "Messaging/Chat", cost: 4000 },
+    { name: "Ratings/Reviews", cost: 2000 },
+    { name: "Referral Systems", cost: 2000 },
   ];
 
   const toggleFeature = (feature: { name: string; cost: number }) => {
@@ -378,8 +381,8 @@ const MonetizationForm = ({
 }) => {
   const features = [
     { name: "One-time Payment", cost: 1000 },
-    { name: "Subscriptions", cost: 1000 },
-    { name: "Ad Integration", cost: 2000 },
+    { name: "Subscriptions", cost: 3000 },
+    { name: "Ad Integration", cost: 3000 },
   ];
 
   const toggleFeature = (feature: { name: string; cost: number }) => {
@@ -439,9 +442,9 @@ const AdvancedFeaturesForm = ({
   >;
 }) => {
   const features = [
-    { name: "AI", cost: 1000 },
-    { name: "AR/VR", cost: 1000 },
-    { name: "IoT Integration", cost: 2000 },
+    { name: "AI", cost: 3000 },
+    { name: "AR/VR", cost: 2000 },
+    { name: "IoT Integration", cost: 3000 },
     { name: "Accessibility Features", cost: 2000 },
   ];
 
@@ -557,6 +560,49 @@ const AppCostFormScreenLast = ({
             </label>
           </div>
         </div>
+      </div>
+    </>
+  );
+};
+
+const AppCostComplete = ({ appCost }: { appCost: number | null }) => {
+  const [minCost, setMinCost] = useState<number | null>(null);
+  const [maxCost, setMaxCost] = useState<number | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  const calculateCost = (appCost: number) => {
+    // Round min cost down to nearest 500
+    const min = Math.floor((appCost - appCost * 0.123) / 500) * 500;
+    // Round max cost up to nearest 500
+    const max = Math.ceil((appCost + appCost * 0.134) / 500) * 500;
+
+    setMinCost(min);
+    setMaxCost(max);
+  };
+
+  useEffect(() => {
+    if (appCost) {
+      setLoading(true);
+      calculateCost(appCost);
+      setTimeout(() => {
+        setLoading(false);
+      }, 3000);
+    }
+  }, [appCost]);
+
+  return (
+    <>
+      <div className="space-y-4 flex flex-col items-center">
+        {loading ? (
+          <Loader2 className="animate-spin" />
+        ) : (
+          <>
+            <label>Your Estimated app cost is:</label>
+            <label className="text-2xl font-bold">
+              ${minCost?.toLocaleString()} - ${maxCost?.toLocaleString()}
+            </label>
+          </>
+        )}
       </div>
     </>
   );

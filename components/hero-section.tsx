@@ -366,6 +366,7 @@ const ContactModal = ({ className }: { className?: string }) => {
     mobile: "",
     company: "",
     enquiringAbout: "",
+    message: "",
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState<boolean | null>(null);
@@ -401,80 +402,104 @@ const ContactModal = ({ className }: { className?: string }) => {
       <ModalBody>
         <ModalContent>
           <h4 className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-100 font-bold text-center mb-8">
-            Request a Free App Consultation
+            Get in Touch
           </h4>
-          <div className="space-y-4">
-            <div>
-              <label className="text-sm mb-0 mt-4 font-bold text-neutral-600 dark:text-neutral-400">
-                Name
-              </label>
-              <input
-                type="text"
-                placeholder="joe Smith"
-                className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white"
-                value={formData.name}
-                onChange={(e) =>
-                  setFormData({ ...formData, name: e.target.value })
-                }
-              />
+          {success ? (
+            <div className="text-center text-green-500 mb-4">
+              Message sent successfully!
             </div>
-            <div>
-              <label className="text-sm mb-0 font-bold text-neutral-600 dark:text-neutral-400">
-                Email
-              </label>
-              <input
-                type="email"
-                placeholder="joe.smith@example.com"
-                className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white"
-                value={formData.email}
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
-              />
+          ) : (
+            <div className="space-y-4">
+              <div>
+                <label className="text-sm mb-0 mt-4 font-bold text-neutral-600 dark:text-neutral-400">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="joe Smith"
+                  className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white"
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
+                />
+              </div>
+              <div>
+                <label className="text-sm mb-0 font-bold text-neutral-600 dark:text-neutral-400">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  placeholder="joe.smith@example.com"
+                  className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                />
+              </div>
+              <div>
+                <label className="text-sm mb-0 font-bold text-neutral-600 dark:text-neutral-400">
+                  Mobile Number
+                </label>
+                <input
+                  type="text"
+                  placeholder="0412 345 678"
+                  className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white"
+                  value={formData.mobile}
+                  onChange={(e) =>
+                    setFormData({ ...formData, mobile: e.target.value })
+                  }
+                />
+              </div>
+              <div>
+                <label className="text-sm mb-0 font-bold text-neutral-600 dark:text-neutral-400">
+                  Company Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Acme Inc."
+                  className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white"
+                  value={formData.company}
+                  onChange={(e) =>
+                    setFormData({ ...formData, company: e.target.value })
+                  }
+                />
+              </div>
+              <div>
+                <label className="text-sm mb-0 font-bold text-neutral-600 dark:text-neutral-400">
+                  Enquiring About
+                </label>
+                <select
+                  className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white"
+                  value={formData.enquiringAbout}
+                  onChange={(e) =>
+                    setFormData({ ...formData, enquiringAbout: e.target.value })
+                  }
+                >
+                  <option value="General">General</option>
+                  <option value="Pricing">Pricing</option>
+                  <option value="App Development">App Development</option>
+                  <option value="Support">Support</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div>
+                <label className="text-sm mb-0 font-bold text-neutral-600 dark:text-neutral-400">
+                  Message
+                </label>
+                <textarea
+                  rows={4}
+                  placeholder="Message"
+                  className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white"
+                  value={formData.message}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
+                />
+              </div>
             </div>
-            <div>
-              <label className="text-sm mb-0 font-bold text-neutral-600 dark:text-neutral-400">
-                Mobile Number
-              </label>
-              <input
-                type="text"
-                placeholder="0412 345 678"
-                className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white"
-                value={formData.mobile}
-                onChange={(e) =>
-                  setFormData({ ...formData, mobile: e.target.value })
-                }
-              />
-            </div>
-            <div>
-              <label className="text-sm mb-0 font-bold text-neutral-600 dark:text-neutral-400">
-                Company Name
-              </label>
-              <input
-                type="text"
-                placeholder="Acme Inc."
-                className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white"
-                value={formData.company}
-                onChange={(e) =>
-                  setFormData({ ...formData, company: e.target.value })
-                }
-              />
-            </div>
-            <div>
-              <label className="text-sm mb-0 font-bold text-neutral-600 dark:text-neutral-400">
-                What are you enquiring about?
-              </label>
-              <textarea
-                rows={4}
-                placeholder="I'm enquiring about..."
-                className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white"
-                value={formData.enquiringAbout}
-                onChange={(e) =>
-                  setFormData({ ...formData, enquiringAbout: e.target.value })
-                }
-              />
-            </div>
-          </div>
+          )}
         </ModalContent>
         <ModalFooter className="space-x-2">
           <button className="px-4 py-2 bg-gray-200 text-black dark:bg-neutral-700 dark:text-white rounded-md">
