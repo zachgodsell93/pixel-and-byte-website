@@ -13,6 +13,8 @@ import {
   ModalFooter,
 } from "@/components/ui/animated-modal";
 import { usePathname } from "next/navigation";
+import { Loader2 } from "lucide-react";
+import AppCost from "./app-development/app-cost";
 
 export default function Navbar() {
   const navItems = [
@@ -176,6 +178,7 @@ const AppConsultationModal = () => {
   const [mobile, setMobile] = useState("");
   const [wantReachOut, setWantReachOut] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState<boolean | null>(null);
 
   const features = [
     { name: "User Authentication", cost: 1000 },
@@ -198,6 +201,25 @@ const AppConsultationModal = () => {
 
   const handleSubmit = async () => {
     setLoading(true);
+    const request = await fetch("/api/app-cost-calculator", {
+      method: "POST",
+      body: JSON.stringify({
+        name,
+        email,
+        mobile,
+        wantReachOut,
+        features: selectedFeatures,
+      }),
+    });
+    if (request.ok) {
+      setSuccess(true);
+    } else {
+      setSuccess(false);
+    }
+    setLoading(false);
+    setTimeout(() => {
+      setSuccess(null);
+    }, 3000);
   };
 
   return (
@@ -207,94 +229,27 @@ const AppConsultationModal = () => {
       </ModalTrigger>
       <ModalBody>
         <ModalContent>
-          <h4 className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-100 font-bold text-center mb-8">
-            Free App Cost Estimate
-          </h4>
-          <div className="space-y-4">
-            <div>
-              <p className="text-sm font-bold text-neutral-600 dark:text-neutral-400 mb-2">
-                Select desired features:
-              </p>
-              <div className="grid grid-cols-2 gap-2">
-                {features.map((feature) => (
-                  <label
-                    key={feature.name}
-                    className="flex items-center space-x-2 text-sm text-neutral-600 dark:text-neutral-400"
-                  >
-                    <input
-                      type="checkbox"
-                      checked={selectedFeatures.includes(feature.name)}
-                      onChange={() => handleFeatureToggle(feature.name)}
-                      className="form-checkbox"
-                    />
-                    <span>{feature.name}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <label className="text-sm mb-4 font-bold text-neutral-600 dark:text-neutral-400">
-                Expected Number of Users(in the first 6 months)
-              </label>
-              <select className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white">
-                <option value="0-1000">0-1000</option>
-                <option value="1001-5000">1001-5000</option>
-                <option value="5001-10000">5001-10000</option>
-                <option value="10000+">10000+</option>
-              </select>
-            </div>
-            <div className="flex flex-col gap-y-4">
-              <label className="text-sm mb-0 font-bold text-neutral-600 dark:text-neutral-400">
-                Your Details
-              </label>
-              <input
-                type="text"
-                placeholder="Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white"
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white"
-              />
-              <input
-                type="tel"
-                placeholder="Mobile Number (optional)"
-                value={mobile}
-                onChange={(e) => setMobile(e.target.value)}
-                className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-800 text-black dark:text-white"
-              />
-              <div className="flex items-center space-x-2">
-                <input
-                  type="checkbox"
-                  id="wantReachOut"
-                  checked={wantReachOut}
-                  onChange={(e) => setWantReachOut(e.target.checked)}
-                  className="form-checkbox"
-                />
-                <label
-                  htmlFor="wantReachOut"
-                  className="text-sm text-neutral-600 dark:text-neutral-400"
-                >
-                  Do you want someone to reach out?
-                </label>
-              </div>
-            </div>
-          </div>
+          <AppCost />
         </ModalContent>
         <ModalFooter className="space-x-2">
           <button className="px-4 py-2 bg-gray-200 text-black dark:bg-neutral-700 dark:text-white rounded-md">
             Cancel
           </button>
           <button
-            className="px-4 py-2 bg-pb-orange text-white dark:bg-white dark:text-black rounded-md"
+            className={cn(
+              success ? "bg-green-500 dark:bg-green-600" : "bg-pb-orange",
+              "px-4 py-2 text-white dark:bg-white dark:text-black rounded-md",
+              loading && "bg-gray-400 dark:bg-gray-600"
+            )}
             onClick={handleSubmit}
           >
-            {loading ? "Submitting..." : "Submit"}
+            {loading ? (
+              <Loader2 className="animate-spin" />
+            ) : success ? (
+              "Submitted"
+            ) : (
+              "Submit"
+            )}
           </button>
         </ModalFooter>
       </ModalBody>
