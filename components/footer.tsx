@@ -18,20 +18,20 @@ export default function Footer() {
     },
   ];
 
-  const socials = [
-    {
-      title: "Facebook",
-      href: "#",
-    },
-    {
-      title: "Instagram",
-      href: "#",
-    },
-    {
-      title: "LinkedIn",
-      href: "#",
-    },
-  ];
+  // const socials = [
+  //   {
+  //     title: "Facebook",
+  //     href: "#",
+  //   },
+  //   {
+  //     title: "Instagram",
+  //     href: "#",
+  //   },
+  //   {
+  //     title: "LinkedIn",
+  //     href: "#",
+  //   },
+  // ];
   const legals = [
     {
       title: "Privacy Policy",
@@ -93,7 +93,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="flex justify-center space-y-4 flex-col">
+          {/* <div className="flex justify-center space-y-4 flex-col">
             <p className="transition-colors hover:text-text-neutral-800 text-neutral-600 dark:text-neutral-300 font-bold">
               Socials
             </p>
@@ -109,7 +109,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           <div className="flex justify-center space-y-4 flex-col">
             <p className="transition-colors hover:text-text-neutral-800 text-neutral-600 dark:text-neutral-300 font-bold">
@@ -160,14 +160,9 @@ const Logo = () => {
       href="/"
       className="font-normal flex space-x-2 items-center text-sm mr-4  text-black px-2 py-1  relative z-20"
     >
-      <Image
-        src="https://assets.aceternity.com/logo-dark.png"
-        alt="logo"
-        width={30}
-        height={30}
-      />
+      <Image src="/images/logo-new.png" alt="logo" width={30} height={30} />
       <span className="font-medium text-black dark:text-white">
-        pixel and byte
+        Pixel & Byte
       </span>
     </Link>
   );

@@ -54,9 +54,9 @@ export default function BentoFeatures() {
 
         <Card className="flex flex-col justify-between md:col-span-2">
           <CardContent className="h-40">
-            <CardTitle>Apps users love</CardTitle>
+            <CardTitle>Worldwide Reach</CardTitle>
             <CardDescription>
-              Create apps that users love with our intuitive user interfaces.
+              Create apps that are accessible to users worldwide.
             </CardDescription>
           </CardContent>
           <CardSkeletonBody>
@@ -65,10 +65,10 @@ export default function BentoFeatures() {
         </Card>
         <Card className="flex flex-col justify-between md:col-span-3">
           <CardContent className="h-40">
-            <CardTitle>Running out of copy</CardTitle>
+            <CardTitle>Intuitive User Interfaces</CardTitle>
             <CardDescription>
-              You are running out of copy for your website, we can generate copy
-              for you.
+              Create apps that are easy for users to navigate and increase
+              uptake
             </CardDescription>
           </CardContent>
           <CardSkeletonBody>

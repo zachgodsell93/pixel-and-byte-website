@@ -172,31 +172,41 @@ const Logo = () => {
 };
 
 const AppConsultationModal = () => {
-  const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [mobile, setMobile] = useState("");
-  const [wantReachOut, setWantReachOut] = useState(false);
+  const [selectedFeatures, setSelectedFeatures] = useState<
+    { name: string; cost: number }[]
+  >([]);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    mobile: "",
+    wantReachOut: false,
+  });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState<boolean | null>(null);
+  const [currentStep, setCurrentStep] = useState(1);
 
-  const features = [
-    { name: "User Authentication", cost: 1000 },
-    { name: "Push Notifications", cost: 1500 },
-    { name: "In-App Purchases", cost: 1000 },
-    { name: "Social Media Integration", cost: 1000 },
-    { name: "Offline Mode", cost: 500 },
-    { name: "Analytics", cost: 2000 },
-    { name: "Geolocation", cost: 2500 },
-    { name: "Cloud Sync", cost: 1500 },
+  const steps = [
+    { id: 1, title: "Platform" },
+    { id: 2, title: "User Engagement" },
+    { id: 3, title: "Monetization" },
+    { id: 4, title: "Advanced Features" },
+    { id: 4, title: "Your Details" },
+    { id: 5, title: "Complete" },
   ];
+  const totalSteps = steps.length;
 
-  const handleFeatureToggle = (feature: string) => {
-    setSelectedFeatures((prev) =>
-      prev.includes(feature)
-        ? prev.filter((f) => f !== feature)
-        : [...prev, feature]
-    );
+  const handleNextStep = () => {
+    if (currentStep < totalSteps) {
+      setCurrentStep(currentStep + 1);
+    } else {
+      handleSubmit();
+    }
+  };
+
+  const handlePreviousStep = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    }
   };
 
   const handleSubmit = async () => {
@@ -204,11 +214,8 @@ const AppConsultationModal = () => {
     const request = await fetch("/api/app-cost-calculator", {
       method: "POST",
       body: JSON.stringify({
-        name,
-        email,
-        mobile,
-        wantReachOut,
-        features: selectedFeatures,
+        ...formData,
+        features: [...selectedFeatures],
       }),
     });
     if (request.ok) {
@@ -227,26 +234,45 @@ const AppConsultationModal = () => {
       <ModalTrigger className="hidden md:block px-8 py-2 text-sm font-bold rounded-md bg-pb-orange dark:bg-white dark:text-black text-white shadow-[0px_-2px_0px_0px_rgba(255,255,255,0.4)_inset]">
         Free App Cost Calculator
       </ModalTrigger>
-      <ModalBody>
+      <ModalBody closeOnClickOutside={false}>
         <ModalContent>
-          <AppCost />
+          <AppCost
+            steps={steps}
+            currentStep={currentStep}
+            totalSteps={totalSteps}
+            selectedFeatures={selectedFeatures}
+            setSelectedFeatures={setSelectedFeatures}
+            handleNextStep={handleNextStep}
+            formData={formData}
+            setFormData={setFormData}
+          />
         </ModalContent>
         <ModalFooter className="space-x-2">
-          <button className="px-4 py-2 bg-gray-200 text-black dark:bg-neutral-700 dark:text-white rounded-md">
-            Cancel
-          </button>
+          {currentStep > 1 && (
+            <button
+              className="px-4 py-2 bg-gray-200 text-black dark:bg-neutral-700 dark:text-white rounded-md"
+              onClick={handlePreviousStep}
+              disabled={currentStep === 1}
+            >
+              Previous
+            </button>
+          )}
           <button
             className={cn(
               success ? "bg-green-500 dark:bg-green-600" : "bg-pb-orange",
               "px-4 py-2 text-white dark:bg-white dark:text-black rounded-md",
               loading && "bg-gray-400 dark:bg-gray-600"
             )}
-            onClick={handleSubmit}
+            onClick={handleNextStep}
           >
             {loading ? (
               <Loader2 className="animate-spin" />
             ) : success ? (
               "Submitted"
+            ) : currentStep < totalSteps - 1 ? (
+              "Next"
+            ) : currentStep === totalSteps - 1 ? (
+              "Get Your App Estimate"
             ) : (
               "Submit"
             )}
