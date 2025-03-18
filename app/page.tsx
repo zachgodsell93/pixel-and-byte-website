@@ -2,6 +2,7 @@ import { Hero } from "@/components/hero";
 import { Metadata } from "next";
 import { BenoOne } from "@/components/bento-one";
 import { UseCases } from "@/components/use-cases";
+import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "AI Powered Automation & Data Solutions | Pixel and Byte",
@@ -15,6 +16,7 @@ export default function Home() {
       <Hero />
       <BenoOne />
       <UseCases />
+      <Footer />
     </>
   );
 }

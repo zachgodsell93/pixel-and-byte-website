@@ -75,7 +75,7 @@ export function Hero() {
         </Link>
         <Link
           href="/pricing"
-          className="group relative z-20 flex h-10 w-full cursor-pointer items-center justify-center space-x-2 rounded-lg bg-pb-orange p-px px-4 py-2 text-sm font-semibold leading-6 text-black no-underline shadow-input transition duration-200 hover:-translate-y-0.5 dark:bg-pb-orange dark:text-white sm:w-52"
+          className="group relative z-20 flex h-10 w-full cursor-pointer items-center justify-center space-x-2 rounded-lg bg-pb-orange p-px px-4 py-2 text-sm font-semibold leading-6 text-white no-underline shadow-input transition duration-200 hover:-translate-y-0.5 dark:bg-pb-orange dark:text-white sm:w-52"
         >
           Speak to an expert
         </Link>
@@ -320,36 +320,24 @@ const GridLineVertical = ({
 const LogoCloudMarquee = () => {
   const logos = [
     {
-      name: "Aceternity UI",
-      src: "https://assets.aceternity.com/pro/logos/aceternity-ui.png",
+      name: "Gemini",
+      src: "/logos/gemini.png",
     },
     {
-      name: "Gamity",
-      src: "https://assets.aceternity.com/pro/logos/gamity.png",
+      name: "OpenAI",
+      src: "/logos/openai.png",
     },
     {
-      name: "Host it",
-      src: "https://assets.aceternity.com/pro/logos/hostit.png",
+      name: "Anthropic",
+      src: "/logos/anthropic.png",
     },
     {
-      name: "Asteroid Kit",
-      src: "https://assets.aceternity.com/pro/logos/asteroid-kit.png",
+      name: "Make",
+      src: "/logos/make.png",
     },
     {
-      name: "Aceternity UI 2",
-      src: "https://assets.aceternity.com/pro/logos/aceternity-ui.png",
-    },
-    {
-      name: "Gamity 2",
-      src: "https://assets.aceternity.com/pro/logos/gamity.png",
-    },
-    {
-      name: "Host it 2",
-      src: "https://assets.aceternity.com/pro/logos/hostit.png",
-    },
-    {
-      name: "Asteroid Kit 2",
-      src: "https://assets.aceternity.com/pro/logos/asteroid-kit.png",
+      name: "Salesforce",
+      src: "/logos/salesforce.png",
     },
   ];
 
@@ -372,7 +360,7 @@ const LogoCloudMarquee = () => {
               alt={logo.name}
               width="100"
               height="100"
-              className=" md:w-40 w-32 object-contain filter mx-0 md:mx-10 dark:invert"
+              className=" md:w-40 w-32 object-contain mx-0 md:mx-10"
             />
           ))}
         </Marquee>

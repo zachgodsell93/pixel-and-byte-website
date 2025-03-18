@@ -9,7 +9,7 @@ export function BenoOne() {
   return (
     <div className="w-full max-w-7xl mx-auto my-20 px-4 md:px-8">
       <h2 className="font-sans text-bold text-xl text-center md:text-4xl font-bold tracking-tight text-neutral-8000 dark:text-neutral-100">
-        Services we provide
+        What we do
       </h2>
       <p className="max-w-lg text-sm text-neutral-600 text-center mx-auto mt-4 dark:text-neutral-400">
         We offer a range of AI-powered services to help businesses transform
@@ -42,7 +42,7 @@ const items = [
       "Build intelligent chatbots for customer support, lead generation, and internal communication.",
     header: (
       <Image
-        src="https://assets.aceternity.com/pro/bento-1.png"
+        src="/ai-agent.webp"
         alt="Bento grid 1"
         width={500}
         height={500}
@@ -57,7 +57,7 @@ const items = [
       "Improve existing flows with and utilise AI to enhance the processes and improve efficiency",
     header: (
       <Image
-        src="https://assets.aceternity.com/pro/bento-2.png"
+        src="/automation.png"
         alt="Bento grid 2"
         width={500}
         height={500}
@@ -71,7 +71,7 @@ const items = [
       "Improve customer experience with AI-powered chatbots, helpdesk  and sentiment analysis",
     header: (
       <Image
-        src="https://assets.aceternity.com/pro/bento-4.png"
+        src="/ai-chat.webp"
         alt="Bento grid 3"
         width={500}
         height={500}
