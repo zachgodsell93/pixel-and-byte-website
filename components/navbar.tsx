@@ -1,119 +1,152 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { IconMenu2, IconX } from "@tabler/icons-react";
-import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-import React, { useState, useEffect } from "react";
 import {
-  Modal,
-  ModalTrigger,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-} from "@/components/ui/animated-modal";
-import { usePathname } from "next/navigation";
-import { Loader2 } from "lucide-react";
-import AppCost from "./app-development/app-cost";
+  motion,
+  AnimatePresence,
+  useScroll,
+  useMotionValueEvent,
+} from "framer-motion";
+import Link from "next/link";
+import React, { useRef, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/logo";
+import { ModeToggle } from "@/components/mode-toggle";
+import { CONSTANTS } from "@/constants/links";
 
-export default function Navbar() {
+interface NavbarProps {
+  navItems: NavItems[];
+  visible: boolean;
+}
+
+interface NavItems {
+  name: string;
+  link: string;
+}
+
+export const Navbar = () => {
   const navItems = [
     {
-      name: "Our Work",
-      link: "/our-work",
+      name: "Features",
+      link: "/#features",
     },
     {
-      name: "App Development",
-      link: "/app-development",
-    },
-    {
-      name: "Web Development",
-      link: "/web-development",
-    },
-    {
-      name: "About Us",
-      link: "/about",
+      name: "Pricing",
+      link: "/#pricing",
     },
     {
       name: "Contact",
-      link: "/contact",
+      link: "/#contact",
     },
   ];
 
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollY } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  const [visible, setVisible] = useState<boolean>(false);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (latest > 100) {
+      setVisible(true);
+    } else {
+      setVisible(false);
+    }
+  });
+
   return (
-    <div className="w-full">
-      <DesktopNav navItems={navItems} />
-      <MobileNav navItems={navItems} />
-    </div>
+    <motion.div ref={ref} className="w-full fixed top-0 inset-x-0 z-50">
+      <DesktopNav visible={visible} navItems={navItems} />
+      <MobileNav visible={visible} navItems={navItems} />
+    </motion.div>
   );
-}
+};
 
-const DesktopNav = ({ navItems }: any) => {
+const DesktopNav = ({ navItems, visible }: NavbarProps) => {
   const [hovered, setHovered] = useState<number | null>(null);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const pathname = usePathname();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <motion.div
       onMouseLeave={() => {
         setHovered(null);
       }}
+      animate={{
+        backdropFilter: visible ? "blur(10px)" : "none",
+        boxShadow: visible
+          ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
+          : "none",
+        width: visible ? "40%" : "100%",
+        y: visible ? 20 : 0,
+      }}
+      transition={{
+        type: "spring",
+        stiffness: 200,
+        damping: 50,
+      }}
+      style={{
+        minWidth: "800px",
+      }}
       className={cn(
-        "hidden lg:flex flex-row self-start items-center justify-between py-2 max-w-7xl mx-auto px-4 rounded-full relative z-[60] w-full",
-        "fixed top-0 inset-x-0 transition-all duration-300",
-        isScrolled
-          ? "bg-gray-50 dark:bg-neutral-900 mt-4 border border-gray-200"
-          : "bg-transparent dark:bg-neutral-950 mt-8"
+        "hidden lg:flex flex-row  self-start bg-transparent dark:bg-transparent items-center justify-between py-2 max-w-7xl mx-auto px-4 rounded-full relative z-[60] w-full",
+        visible && "bg-white/80 dark:bg-neutral-950/80"
       )}
     >
       <Logo />
-      <div className="lg:flex flex-row flex-1 hidden items-center justify-center space-x-2 lg:space-x-2 text-sm text-zinc-600 font-medium hover:text-zinc-800 transition duration-200">
-        {navItems.map((navItem: any, idx: number) => (
+      <motion.div className="lg:flex flex-row flex-1 absolute inset-0 hidden items-center justify-center space-x-2 lg:space-x-2 text-sm text-zinc-600 font-medium hover:text-zinc-800 transition duration-200">
+        {navItems.map((navItem: NavItems, idx: number) => (
           <Link
             onMouseEnter={() => setHovered(idx)}
-            className={cn(
-              "text-neutral-600 dark:text-neutral-300 relative px-4 py-2",
-              pathname === navItem.link &&
-                "border-2 border-pb-blue rounded-full"
-            )}
+            className="text-neutral-600 dark:text-neutral-300 relative px-4 py-2"
             key={`link=${idx}`}
             href={navItem.link}
           >
             {hovered === idx && (
               <motion.div
                 layoutId="hovered"
-                className="w-full h-full absolute inset-0 bg-pb-blue/20 dark:bg-neutral-800 rounded-full"
+                className="w-full h-full absolute inset-0 bg-gray-100 dark:bg-neutral-800 rounded-full"
               />
             )}
             <span className="relative z-20">{navItem.name}</span>
           </Link>
         ))}
+      </motion.div>
+      <div className="flex items-center gap-4">
+        <ModeToggle />
+        <Button variant="default" className="hidden md:block">
+          Book a call
+        </Button>
       </div>
-      <AppConsultationModal />
     </motion.div>
   );
 };
 
-const MobileNav = ({ navItems }: any) => {
+const MobileNav = ({ navItems, visible }: NavbarProps) => {
   const [open, setOpen] = useState(false);
 
   return (
     <>
       <motion.div
         animate={{
+          backdropFilter: visible ? "blur(10px)" : "none",
+          boxShadow: visible
+            ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
+            : "none",
+          width: visible ? "90%" : "100%",
+          y: visible ? 20 : 0,
           borderRadius: open ? "4px" : "2rem",
+          paddingRight: visible ? "12px" : "0px",
+          paddingLeft: visible ? "12px" : "0px",
         }}
-        key={String(open)}
-        className="flex relative flex-col z-[60] lg:hidden w-full justify-between items-center bg-white dark:bg-neutral-950  max-w-[calc(100vw-2rem)] mx-auto px-4 py-2"
+        transition={{
+          type: "spring",
+          stiffness: 200,
+          damping: 50,
+        }}
+        className={cn(
+          "flex relative flex-col lg:hidden w-full justify-between items-center bg-transparent   max-w-[calc(100vw-2rem)] mx-auto px-0 py-2 z-50",
+          visible && "bg-white/80 dark:bg-neutral-950/80"
+        )}
       >
         <div className="flex flex-row justify-between items-center w-full">
           <Logo />
@@ -138,152 +171,37 @@ const MobileNav = ({ navItems }: any) => {
               }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="flex rounded-lg absolute top-16 bg-white dark:bg-neutral-950 inset-x-0 z-20 flex-col items-start justify-start gap-4 w-full px-4 py-8"
+              className="flex rounded-lg absolute top-16 bg-white dark:bg-neutral-950 inset-x-0 z-50 flex-col items-start justify-start gap-4 w-full px-4 py-8 shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
             >
-              {navItems.map((navItem: any, idx: number) => (
+              {navItems.map((navItem: NavItems, idx: number) => (
                 <Link
                   key={`link=${idx}`}
                   href={navItem.link}
+                  onClick={() => setOpen(false)}
                   className="relative text-neutral-600 dark:text-neutral-300"
                 >
                   <motion.span className="block">{navItem.name} </motion.span>
                 </Link>
               ))}
-              <button className="px-8 py-2 w-full rounded-md bg-black dark:bg-white dark:text-black font-medium text-white shadow-[0px_-2px_0px_0px_rgba(255,255,255,0.4)_inset]">
+              <Button
+                asChild
+                variant="default"
+                className="block md:hidden w-full"
+                onClick={() => setOpen(false)}
+              >
+                <Link href={CONSTANTS.LOGIN_LINK}>Login</Link>
+              </Button>
+              <Button
+                variant="default"
+                className="block md:hidden w-full"
+                onClick={() => setOpen(false)}
+              >
                 Book a call
-              </button>
+              </Button>
             </motion.div>
           )}
         </AnimatePresence>
       </motion.div>
     </>
-  );
-};
-
-const Logo = () => {
-  return (
-    <Link
-      href="/"
-      className="font-normal flex space-x-2 items-center text-sm mr-4  text-black px-2 py-1  relative z-20"
-    >
-      <Image src="/images/logo-new.png" alt="logo" width={50} height={30} />
-    </Link>
-  );
-};
-
-const AppConsultationModal = () => {
-  const [selectedFeatures, setSelectedFeatures] = useState<
-    { name: string; cost: number }[]
-  >([]);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    mobile: "",
-    wantReachOut: false,
-  });
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState<boolean | null>(null);
-  const [currentStep, setCurrentStep] = useState(1);
-  const [appCostLoading, setAppCostLoading] = useState(false);
-  const [appCost, setAppCost] = useState<number | null>(null);
-
-  const steps = [
-    { id: 1, title: "Platform" },
-    { id: 2, title: "User Engagement" },
-    { id: 3, title: "Monetization" },
-    { id: 4, title: "Advanced Features" },
-    { id: 5, title: "Your Details" },
-    { id: 5, title: "Complete" },
-  ];
-  const totalSteps = steps.length;
-
-  const handleNextStep = () => {
-    if (currentStep < totalSteps - 1) {
-      setCurrentStep(currentStep + 1);
-    } else {
-      setCurrentStep(currentStep + 1);
-      handleSubmit();
-    }
-  };
-
-  const handlePreviousStep = () => {
-    if (currentStep > 1) {
-      setCurrentStep(currentStep - 1);
-    }
-  };
-
-  const handleSubmit = async () => {
-    setLoading(true);
-    const request = await fetch("/api/app-cost-calculator", {
-      method: "POST",
-      body: JSON.stringify({
-        ...formData,
-        features: [...selectedFeatures],
-      }),
-    });
-    if (request.ok) {
-      setSuccess(true);
-    } else {
-      setSuccess(false);
-    }
-    setLoading(false);
-    setTimeout(() => {
-      setAppCost(selectedFeatures.reduce((acc, f) => acc + f.cost, 0));
-      setSuccess(null);
-    }, 3000);
-  };
-
-  return (
-    <Modal>
-      <ModalTrigger className="hidden md:block px-8 py-2 text-sm font-bold rounded-md bg-pb-orange dark:bg-white dark:text-black text-white shadow-[0px_-2px_0px_0px_rgba(255,255,255,0.4)_inset]">
-        Free App Cost Calculator
-      </ModalTrigger>
-      <ModalBody closeOnClickOutside={false}>
-        <ModalContent>
-          <AppCost
-            steps={steps}
-            currentStep={currentStep}
-            totalSteps={totalSteps}
-            selectedFeatures={selectedFeatures}
-            setSelectedFeatures={setSelectedFeatures}
-            handleNextStep={handleNextStep}
-            formData={formData}
-            setFormData={setFormData}
-            appCost={appCost}
-          />
-        </ModalContent>
-        <ModalFooter className="space-x-2">
-          {currentStep > 1 && (
-            <button
-              className="px-4 py-2 bg-gray-200 text-black dark:bg-neutral-700 dark:text-white rounded-md"
-              onClick={handlePreviousStep}
-              disabled={currentStep === 1}
-            >
-              Previous
-            </button>
-          )}
-          <button
-            className={cn(
-              success ? "bg-green-500 dark:bg-green-600" : "bg-pb-orange",
-              "px-4 py-2 text-white dark:bg-white dark:text-black rounded-md",
-              loading && "bg-gray-400 dark:bg-gray-600"
-            )}
-            onClick={handleNextStep}
-          >
-            {loading ? (
-              <Loader2 className="animate-spin" />
-            ) : success ? (
-              "Submitted"
-            ) : currentStep < totalSteps - 1 ? (
-              "Next"
-            ) : currentStep === totalSteps - 1 ? (
-              "Get Your App Estimate"
-            ) : (
-              "Submit"
-            )}
-          </button>
-        </ModalFooter>
-      </ModalBody>
-    </Modal>
   );
 };
