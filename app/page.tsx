@@ -38,7 +38,7 @@ function Clients() {
       <Container>
         <FadeIn className="flex items-center gap-x-8">
           <h2 className="font-display text-center text-sm font-semibold tracking-wider text-white sm:text-left">
-            We’ve worked with hundreds of amazing people
+            We only work with the best in class
           </h2>
           <div className="h-px flex-auto bg-neutral-800" />
         </FadeIn>
@@ -126,12 +126,12 @@ function Services() {
     <>
       <SectionIntro
         eyebrow="Services"
-        title="We help you identify, explore and respond to new opportunities."
+        title="We help you identify, explore and respond to new technologies."
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          As long as those opportunities involve giving us money to re-purpose
-          old projects — we can come up with an endless number of those.
+          AI is our bread and butter, but we also have a knack for development
+          and CRM development
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -146,16 +146,16 @@ function Services() {
             </FadeIn>
           </div>
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
-            <ListItem title="Web development">
+            <ListItem title="AI Agent Development">
               We specialise in crafting beautiful, high quality marketing pages.
               The rest of the website will be a shell that uses lorem ipsum
               everywhere.
             </ListItem>
-            <ListItem title="Application development">
+            <ListItem title="AI Workflow Automation">
               We have a team of skilled developers who are experts in the latest
               app frameworks, like Angular 1 and Google Web Toolkit.
             </ListItem>
-            <ListItem title="E-commerce">
+            <ListItem title="AI-Enhanced Customer Service">
               We are at the forefront of modern e-commerce development. Which
               mainly means adding your logo to the Shopify store template we’ve
               used for the past six years.
@@ -174,7 +174,7 @@ function Services() {
 
 export const metadata: Metadata = {
   description:
-    'We are a development studio working at the intersection of design and technology.',
+    'Pixel and Byte empowers you with cutting-edge AI solutions. We make AI integration seamless and straightforward.',
 }
 
 export default async function Home() {
@@ -185,11 +185,11 @@ export default async function Home() {
       <Container className="mt-24 sm:mt-32 md:mt-56">
         <FadeIn className="max-w-3xl">
           <h1 className="font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
-            Smarter Data, Automated Systems, Happier Customers, Powered by AI.
+            Bringing Clarity to AI: Making It Black and White.
           </h1>
           <p className="mt-6 text-xl text-neutral-600">
-            Take the complexity out of AI integration, delivering practical
-            solutions that improve your data, systems, and customer experiences.
+            Pixel and Byte delivers AI automation, agents, and chatbots that are
+            easy to implement and understand. No more confusion.
           </p>
         </FadeIn>
       </Container>
