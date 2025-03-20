@@ -12,14 +12,13 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
 import { motion, MotionConfig, useReducedMotion } from 'framer-motion'
-
+import { Footer } from '@/components/Footer'
+import { Logo } from '@/components/Logo'
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { GridPattern } from '@/components/GridPattern'
-import { Logo } from './Logo'
 import { Offices } from '@/components/Offices'
 import { SocialMedia } from '@/components/SocialMedia'
-import { Footer } from '@/components/Footer'
 
 const RootLayoutContext = createContext<{
   logoHovered: boolean
