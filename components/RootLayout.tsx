@@ -17,6 +17,9 @@ import { Container } from '@/components/Container'
 import { GridPattern } from '@/components/GridPattern'
 import { Offices } from '@/components/Offices'
 import { SocialMedia } from '@/components/SocialMedia'
+import Image from 'next/image'
+import BwLogo from '@/images/logo-bw.png'
+import BwInvertedLogo from '@/images/logo-bw-inverted.png'
 
 const RootLayoutContext = createContext<{
   logoHovered: boolean
@@ -280,7 +283,6 @@ export function RootLayout({ children }: { children: React.ReactNode }) {
   )
 }
 
-;('use client')
 const navigation = {
   main: [
     { name: 'About', href: '#' },
