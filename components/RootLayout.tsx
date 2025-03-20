@@ -19,7 +19,7 @@ import { GridPattern } from '@/components/GridPattern'
 import { Logo } from '@/components/Logo'
 import { Offices } from '@/components/Offices'
 import { SocialMedia } from '@/components/SocialMedia'
-import { Footer } from '@/components/Footer'
+import Footer from '@/components/Footer'
 
 const RootLayoutContext = createContext<{
   logoHovered: boolean
