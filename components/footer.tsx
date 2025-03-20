@@ -1,3 +1,4 @@
+'use client'
 const navigation = {
   main: [
     { name: 'About', href: '#' },
@@ -72,7 +73,7 @@ const navigation = {
   ],
 }
 
-export default function NewFooter() {
+export function Footer() {
   const currentYear = new Date().getFullYear()
   return (
     <footer className="bg-white">

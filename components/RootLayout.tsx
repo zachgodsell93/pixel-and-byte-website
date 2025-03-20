@@ -19,7 +19,7 @@ import { GridPattern } from '@/components/GridPattern'
 import { Logo } from './Logo'
 import { Offices } from '@/components/Offices'
 import { SocialMedia } from '@/components/SocialMedia'
-import NewFooter from './Footer'
+import { Footer } from '@/components/Footer'
 
 const RootLayoutContext = createContext<{
   logoHovered: boolean
@@ -265,7 +265,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
 
           <main className="w-full flex-auto">{children}</main>
 
-          <NewFooter />
+          <Footer />
         </motion.div>
       </motion.div>
     </MotionConfig>

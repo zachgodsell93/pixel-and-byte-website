@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import BwLogo from '@/images/logo-bw.png'
 import BwInvertedLogo from '@/images/logo-bw-inverted.png'
 
-export const Logo = ({
+export function Logo({
   className,
   invert = false,
   filled = false,
@@ -15,7 +15,7 @@ export const Logo = ({
   invert?: boolean
   filled?: boolean
   fillOnHover?: boolean
-}) => {
+}) {
   return (
     <div className={clsx('group relative', className)} {...props}>
       <motion.div
