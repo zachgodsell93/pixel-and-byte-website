@@ -72,7 +72,7 @@ const navigation = {
   ],
 }
 
-export default function Footer() {
+export const Footer = () => {
   const currentYear = new Date().getFullYear()
   return (
     <footer className="bg-white">
