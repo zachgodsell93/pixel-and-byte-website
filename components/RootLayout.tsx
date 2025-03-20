@@ -16,10 +16,10 @@ import { motion, MotionConfig, useReducedMotion } from 'framer-motion'
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { GridPattern } from '@/components/GridPattern'
-import { Logo } from '@/components/Logo'
+import { Logo } from './Logo'
 import { Offices } from '@/components/Offices'
 import { SocialMedia } from '@/components/SocialMedia'
-import NewFooter from '@/components/Footer'
+import NewFooter from './Footer'
 
 const RootLayoutContext = createContext<{
   logoHovered: boolean
