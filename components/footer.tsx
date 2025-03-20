@@ -1,140 +1,134 @@
-import { cn } from "@/lib/utils";
-import {
-  IconBrandFacebook,
-  IconBrandGithub,
-  IconBrandInstagram,
-  IconBrandLinkedin,
-  IconBrandTwitter,
-} from "@tabler/icons-react";
-// import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import { Logo } from "./logo";
+import Link from 'next/link'
 
-export function Footer() {
-  const pages = [
-    {
-      title: "About",
-      href: "#",
-    },
-    {
-      title: "Contact",
-      href: "#",
-    },
-    {
-      title: "Blog",
-      href: "#",
-    },
-    {
-      title: "Privacy",
-      href: "#",
-    },
-    {
-      title: "Terms",
-      href: "#",
-    },
-  ];
+import { Container } from '@/components/Container'
+import { FadeIn } from '@/components/FadeIn'
+import { Logo } from '@/components/Logo'
+import { socialMediaProfiles } from '@/components/SocialMedia'
 
-  const currentYear = new Date().getFullYear();
+const navigation = [
+  {
+    title: 'Work',
+    links: [
+      { title: 'FamilyFund', href: '/work/family-fund' },
+      { title: 'Unseal', href: '/work/unseal' },
+      { title: 'Phobia', href: '/work/phobia' },
+      {
+        title: (
+          <>
+            See all <span aria-hidden="true">&rarr;</span>
+          </>
+        ),
+        href: '/work',
+      },
+    ],
+  },
+  {
+    title: 'Company',
+    links: [
+      { title: 'About', href: '/about' },
+      { title: 'Process', href: '/process' },
+      { title: 'Blog', href: '/blog' },
+      { title: 'Contact us', href: '/contact' },
+    ],
+  },
+  {
+    title: 'Connect',
+    links: socialMediaProfiles,
+  },
+]
 
+function Navigation() {
   return (
-    <div className="border-t border-neutral-100 dark:border-white/[0.1] px-8 py-20 bg-white dark:bg-neutral-950 w-full relative overflow-hidden">
-      <div className="max-w-7xl mx-auto text-sm text-neutral-500  justify-between items-start  md:px-8">
-        <div className="flex flex-col items-center justify-center w-full relative">
-          <div className="mr-0 md:mr-4  md:flex mb-4">
-            <Logo />
-          </div>
-
-          <ul className="transition-colors flex sm:flex-row flex-col hover:text-text-neutral-800 text-neutral-600 dark:text-neutral-300 list-none gap-4">
-            {pages.map((page, idx) => (
-              <li key={"pages" + idx} className="list-none">
-                <Link
-                  className="transition-colors hover:text-text-neutral-800 "
-                  href="/products"
-                >
-                  {page.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-
-          <GridLineHorizontal className="max-w-7xl mx-auto mt-8" />
-        </div>
-        <div className="flex sm:flex-row flex-col justify-between mt-8 items-center w-full">
-          <p className="text-neutral-500 dark:text-neutral-400 mb-8 sm:mb-0">
-            &copy; {currentYear} Pixel and Byte Pty Ltd
-          </p>
-          <div className="flex gap-4">
-            <Link href="#">
-              <IconBrandTwitter className="h-6 w-6 text-neutral-500 dark:text-neutral-300" />
-            </Link>
-            <Link href="#">
-              <IconBrandLinkedin className="h-6 w-6 text-neutral-500 dark:text-neutral-300" />
-            </Link>
-            <Link href="#">
-              <IconBrandGithub className="h-6 w-6 text-neutral-500 dark:text-neutral-300" />
-            </Link>
-            <Link href="#">
-              <IconBrandFacebook className="h-6 w-6 text-neutral-500 dark:text-neutral-300" />
-            </Link>
-            <Link href="#">
-              <IconBrandInstagram className="h-6 w-6 text-neutral-500 dark:text-neutral-300" />
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+    <nav>
+      <ul role="list" className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+        {navigation.map((section, sectionIndex) => (
+          <li key={sectionIndex}>
+            <div className="font-display text-sm font-semibold tracking-wider text-neutral-950">
+              {section.title}
+            </div>
+            <ul role="list" className="mt-4 text-sm text-neutral-700">
+              {section.links.map((link, linkIndex) => (
+                <li key={linkIndex} className="mt-4">
+                  <Link
+                    href={link.href}
+                    className="transition hover:text-neutral-950"
+                  >
+                    {link.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
 }
 
-const GridLineHorizontal = ({
-  className,
-  offset,
-}: {
-  className?: string;
-  offset?: string;
-}) => {
+function ArrowIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
-    <div
-      style={
-        {
-          "--background": "#ffffff",
-          "--color": "rgba(0, 0, 0, 0.2)",
-          "--height": "1px",
-          "--width": "5px",
-          "--fade-stop": "90%",
-          "--offset": offset || "200px", //-100px if you want to keep the line inside
-          "--color-dark": "rgba(255, 255, 255, 0.2)",
-          maskComposite: "exclude",
-        } as React.CSSProperties
-      }
-      className={cn(
-        "w-[calc(100%+var(--offset))] h-[var(--height)]",
-        "bg-[linear-gradient(to_right,var(--color),var(--color)_50%,transparent_0,transparent)]",
-        "[background-size:var(--width)_var(--height)]",
-        "[mask:linear-gradient(to_left,var(--background)_var(--fade-stop),transparent),_linear-gradient(to_right,var(--background)_var(--fade-stop),transparent),_linear-gradient(black,black)]",
-        "[mask-composite:exclude]",
-        "z-30",
-        "dark:bg-[linear-gradient(to_right,var(--color-dark),var(--color-dark)_50%,transparent_0,transparent)]",
-        className
-      )}
-    ></div>
-  );
-};
+    <svg viewBox="0 0 16 6" aria-hidden="true" {...props}>
+      <path
+        fill="currentColor"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 3 10 .5v2H0v1h10v2L16 3Z"
+      />
+    </svg>
+  )
+}
 
-// const Logo = () => {
-//   return (
-//     <Link
-//       href="/"
-//       className="font-normal flex space-x-2 items-center text-sm mr-4  text-black px-2 py-1  relative z-20"
-//     >
-//       <Image
-//         src="https://assets.aceternity.com/logo-dark.png"
-//         alt="logo"
-//         width={30}
-//         height={30}
-//       />
-//       <span className="font-medium text-black dark:text-white">DevStudio</span>
-//     </Link>
-//   );
-// };
+function NewsletterForm() {
+  return (
+    <form className="max-w-sm">
+      <h2 className="font-display text-sm font-semibold tracking-wider text-neutral-950">
+        Sign up for our newsletter
+      </h2>
+      <p className="mt-4 text-sm text-neutral-700">
+        Subscribe to get the latest design news, articles, resources and
+        inspiration.
+      </p>
+      <div className="relative mt-6">
+        <input
+          type="email"
+          placeholder="Email address"
+          autoComplete="email"
+          aria-label="Email address"
+          className="block w-full rounded-2xl border border-neutral-300 bg-transparent py-4 pr-20 pl-6 text-base/6 text-neutral-950 ring-4 ring-transparent transition placeholder:text-neutral-500 focus:border-neutral-950 focus:ring-neutral-950/5 focus:outline-hidden"
+        />
+        <div className="absolute inset-y-1 right-1 flex justify-end">
+          <button
+            type="submit"
+            aria-label="Submit"
+            className="flex aspect-square h-full items-center justify-center rounded-xl bg-neutral-950 text-white transition hover:bg-neutral-800"
+          >
+            <ArrowIcon className="w-4" />
+          </button>
+        </div>
+      </div>
+    </form>
+  )
+}
+
+export function Footer() {
+  return (
+    <Container as="footer" className="mt-24 w-full sm:mt-32 lg:mt-40">
+      <FadeIn>
+        <div className="grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2">
+          <Navigation />
+          <div className="flex lg:justify-end">
+            <NewsletterForm />
+          </div>
+        </div>
+        <div className="mt-24 mb-20 flex flex-wrap items-end justify-between gap-x-6 gap-y-4 border-t border-neutral-950/10 pt-12">
+          <Link href="/" aria-label="Home">
+            <Logo className="h-8" fillOnHover />
+          </Link>
+          <p className="text-sm text-neutral-700">
+            © Studio Agency Inc. {new Date().getFullYear()}
+          </p>
+        </div>
+      </FadeIn>
+    </Container>
+  )
+}
