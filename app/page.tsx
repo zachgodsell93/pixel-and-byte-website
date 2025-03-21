@@ -19,17 +19,22 @@ import logoPhobiaDark from '@/images/clients/phobia/logo-dark.svg'
 import logoPhobiaLight from '@/images/clients/phobia/logo-light.svg'
 import logoUnseal from '@/images/clients/unseal/logo-light.svg'
 import imageLaptop from '@/images/laptop.jpg'
+import logoAnthropic from '@/images/logos/Anthropic.png'
+import logoOpenAI from '@/images/logos/OpenAI.png'
+import logoEinstein from '@/images/logos/Eisntein.png'
+import logoGemini from '@/images/logos/Gemini.png'
+import logoMake from '@/images/logos/Make.png'
+import logoN8n from '@/images/logos/N8N.png'
+
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 
 const clients = [
-  ['Phobia', logoPhobiaLight],
-  ['Family Fund', logoFamilyFund],
-  ['Unseal', logoUnseal],
-  ['Mail Smirk', logoMailSmirk],
-  ['Home Work', logoHomeWork],
-  ['Green Life', logoGreenLife],
-  ['Bright Path', logoBrightPath],
-  ['North Adventures', logoNorthAdventures],
+  ['OpenAI', logoOpenAI],
+  ['Anthropic', logoAnthropic],
+  ['Einstein', logoEinstein],
+  ['Gemini', logoGemini],
+  ['Make', logoMake],
+  ['N8N', logoN8n],
 ]
 
 function Clients() {
@@ -47,10 +52,16 @@ function Clients() {
             role="list"
             className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4"
           >
-            {clients.map(([client, logo]) => (
-              <li key={client}>
-                <FadeIn>
-                  <Image src={logo} alt={client} unoptimized />
+            {clients.map(([client, logo], idx) => (
+              <li key={idx}>
+                <FadeIn className="flex h-full items-center justify-center">
+                  <Image
+                    src={logo}
+                    width={100}
+                    height={100}
+                    alt={client as string}
+                    unoptimized
+                  />
                 </FadeIn>
               </li>
             ))}
@@ -147,23 +158,31 @@ function Services() {
           </div>
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
             <ListItem title="AI Agent Development">
-              We specialise in crafting beautiful, high quality marketing pages.
-              The rest of the website will be a shell that uses lorem ipsum
-              everywhere.
+              We specialize in developing sophisticated AI agents designed to
+              automate and streamline complex tasks. Our agents are built to
+              learn, adapt, and execute processes, including tasks such as
+              automated inbox management, meeting scheduling, and customized
+              workflow operations.
             </ListItem>
             <ListItem title="AI Workflow Automation">
-              We have a team of skilled developers who are experts in the latest
-              app frameworks, like Angular 1 and Google Web Toolkit.
+              Our team excels in creating intelligent workflow automation
+              solutions. We leverage the latest AI frameworks and develop custom
+              logic to automate key business processes, allowing your team to
+              focus on strategic initiatives and core business functions.
             </ListItem>
             <ListItem title="AI-Enhanced Customer Service">
-              We are at the forefront of modern e-commerce development. Which
-              mainly means adding your logo to the Shopify store template we’ve
-              used for the past six years.
+              We build AI-driven customer service systems that provide
+              personalized and efficient support. Our solutions include
+              intelligent chatbots capable of resolving complex customer
+              inquiries and sentiment analysis tools that provide valuable
+              insights into customer feedback.
             </ListItem>
-            <ListItem title="Custom content management">
-              At Studio we understand the importance of having a robust and
-              customised CMS. That’s why we run all of our client projects out
-              of a single, enormous Joomla instance.
+            <ListItem title="AI Powered Business Analytics">
+              We transform raw data into actionable insights with our AI-powered
+              business analytics services. Our team develops custom dashboards
+              and reporting systems that deliver clear, comprehensive
+              visualizations of your business data, enabling informed and
+              strategic decision-making.
             </ListItem>
           </List>
         </div>
@@ -196,16 +215,16 @@ export default async function Home() {
 
       <Clients />
 
-      <CaseStudies caseStudies={caseStudies} />
+      {/* <CaseStudies caseStudies={caseStudies} /> */}
 
-      <Testimonial
+      {/* <Testimonial
         className="mt-24 sm:mt-32 lg:mt-40"
         client={{ name: 'Phobia', logo: logoPhobiaDark }}
       >
         The team at Studio went above and beyond with our onboarding, even
         finding a way to access the user’s microphone without triggering one of
         those annoying permission dialogs.
-      </Testimonial>
+      </Testimonial> */}
 
       <Services />
 

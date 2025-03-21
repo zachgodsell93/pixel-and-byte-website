@@ -42,7 +42,7 @@ function Section({
               className="font-display text-base font-semibold before:text-neutral-300 before:content-['/_'] after:text-neutral-950 after:content-[counter(section,decimal-leading-zero)]"
               aria-hidden="true"
             />
-            <h2 className="mt-2 font-display text-3xl font-medium tracking-tight text-neutral-950 sm:text-4xl">
+            <h2 className="font-display mt-2 text-3xl font-medium tracking-tight text-neutral-950 sm:text-4xl">
               {title}
             </h2>
             <div className="mt-6">{children}</div>
@@ -58,28 +58,28 @@ function Discover() {
     <Section title="Discover" image={{ src: imageWhiteboard }}>
       <div className="space-y-6 text-base text-neutral-600">
         <p>
-          We work closely with our clients to understand their{' '}
-          <strong className="font-semibold text-neutral-950">needs</strong> and
-          goals, embedding ourselves in their every day operations to understand
-          what makes their business tick.
+          Our discovery and consultation process begins with a comprehensive
+          evaluation of your business ecosystem. We dive deep into understanding
+          your goals, challenges, and current technological landscape, while
+          assessing your organization's AI readiness and data infrastructure⁠⁠.
         </p>
         <p>
-          Our team of private investigators shadow the company director’s for
-          several weeks while our account managers focus on going through their
-          trash. Our senior security experts then perform social engineering
-          hacks to gain access to their{' '}
-          <strong className="font-semibold text-neutral-950">business</strong>{' '}
-          accounts — handing that information over to our forensic accounting
-          team.
+          Following the initial assessment, we conduct a detailed analysis of
+          potential AI applications and use cases specific to your business
+          needs. We examine your existing systems, data quality, and integration
+          requirements while considering industry-specific challenges and
+          opportunities.
         </p>
         <p>
-          Once the full audit is complete, we report back with a comprehensive{' '}
-          <strong className="font-semibold text-neutral-950">plan</strong> and,
-          more importantly, a budget.
+          Finally, we develop a strategic roadmap that outlines clear
+          implementation steps and expected outcomes. This includes defining
+          success metrics, establishing project timelines, and creating a
+          detailed resource allocation plan to ensure smooth execution of your
+          AI integration journey.
         </p>
       </div>
 
-      <h3 className="mt-12 font-display text-base font-semibold text-neutral-950">
+      <h3 className="font-display mt-12 text-base font-semibold text-neutral-950">
         Included in this phase
       </h3>
       <TagList className="mt-4">
@@ -94,28 +94,30 @@ function Discover() {
   )
 }
 
-function Build() {
+function Planning() {
   return (
-    <Section title="Build" image={{ src: imageLaptop, shape: 1 }}>
+    <Section title="Strategic Planning" image={{ src: imageLaptop, shape: 1 }}>
       <div className="space-y-6 text-base text-neutral-600">
         <p>
-          Based off of the discovery phase, we develop a comprehensive roadmap
-          for each product and start working towards delivery. The roadmap is an
-          intricately tangled mess of technical nonsense designed to drag the
-          project out as long as possible.
+          Following our in-depth discovery, we craft a customized strategy that
+          perfectly aligns with your business objectives and industry
+          requirements. We take into account your current technological
+          infrastructure, business processes, and future growth plans to ensure
+          our strategy is both practical and forward-thinking.
         </p>
         <p>
-          Each client is assigned a key account manager to keep lines of
-          communication open and obscure the actual progress of the project.
-          They act as a buffer between the client’s incessant nagging and the
-          development team who are hard at work scouring open source projects
-          for code to re-purpose.
+          Our strategic planning phase involves a thorough analysis of your
+          existing systems and the identification of KPIs that will measure
+          success. We carefully select the most appropriate technology stack for
+          your needs, considering factors such as scalability, integration
+          capabilities, and long-term maintenance requirements.
         </p>
         <p>
-          Our account managers are trained to only reply to client emails after
-          9pm, several days after the initial email. This reinforces the general
-          aura that we are very busy and dissuades clients from asking for
-          changes.
+          The final step of our strategic planning involves creating a
+          comprehensive project roadmap that outlines clear milestones and
+          deliverables. This roadmap includes detailed timelines, resource
+          allocation plans, and risk mitigation strategies to ensure smooth
+          implementation and maximum return on investment.
         </p>
       </div>
 
@@ -135,35 +137,28 @@ function Deliver() {
     <Section title="Deliver" image={{ src: imageMeeting, shape: 2 }}>
       <div className="space-y-6 text-base text-neutral-600">
         <p>
-          About halfway through the Build phase, we push each project out by 6
-          weeks due to a change in{' '}
-          <strong className="font-semibold text-neutral-950">
-            requirements
-          </strong>
-          . This allows us to increase the budget a final time before launch.
+          We begin our data assessment process by conducting a comprehensive
+          evaluation of your existing data infrastructure, quality, and
+          organizational structure. This initial analysis helps us identify
+          potential data gaps, inconsistencies, and areas for improvement that
+          could impact the success of your AI implementation.
         </p>
         <p>
-          Despite largely using pre-built components, most of the{' '}
-          <strong className="font-semibold text-neutral-950">progress</strong>{' '}
-          on each project takes place in the final 24 hours. The development
-          time allocated to each client is actually spent making augmented
-          reality demos that go viral on social media.
+          Our data preparation phase involves cleansing and standardizing your
+          data to ensure it meets the requirements for AI integration. We employ
+          advanced data validation techniques and quality control measures to
+          maintain data integrity while establishing proper data governance
+          frameworks that align with industry best practices.
         </p>
         <p>
-          We ensure that the main pages of the site are{' '}
-          <strong className="font-semibold text-neutral-950">
-            fully functional
-          </strong>{' '}
-          at launch — the auxiliary pages will, of course, be lorem ipusm shells
-          which get updated as part of our exorbitant{' '}
-          <strong className="font-semibold text-neutral-950">
-            maintenance
-          </strong>{' '}
-          retainer.
+          Finally, we implement automated data pipelines and monitoring systems
+          to maintain ongoing data quality and consistency. These systems help
+          ensure your data remains accurate and reliable over time, while also
+          streamlining the integration process with your AI solutions."
         </p>
       </div>
 
-      <h3 className="mt-12 font-display text-base font-semibold text-neutral-950">
+      <h3 className="font-display mt-12 text-base font-semibold text-neutral-950">
         Included in this phase
       </h3>
       <List className="mt-8">
@@ -187,7 +182,7 @@ function Deliver() {
 function Values() {
   return (
     <div className="relative mt-24 pt-24 sm:mt-32 sm:pt-32 lg:mt-40 lg:pt-40">
-      <div className="absolute inset-x-0 top-0 -z-10 h-[884px] overflow-hidden rounded-t-4xl bg-linear-to-b from-neutral-50">
+      <div className="rounded-t-4xl bg-linear-to-b absolute inset-x-0 top-0 -z-10 h-[884px] overflow-hidden from-neutral-50">
         <GridPattern
           className="absolute inset-0 h-full w-full fill-neutral-100 stroke-neutral-950/5 [mask-image:linear-gradient(to_bottom_left,white_40%,transparent_50%)]"
           yOffset={-270}
@@ -258,7 +253,7 @@ export default function Process() {
 
       <div className="mt-24 space-y-24 [counter-reset:section] sm:mt-32 sm:space-y-32 lg:mt-40 lg:space-y-40">
         <Discover />
-        <Build />
+        <Planning />
         <Deliver />
       </div>
 

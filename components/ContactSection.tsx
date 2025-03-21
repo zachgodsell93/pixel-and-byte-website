@@ -14,7 +14,7 @@ export function ContactSection() {
           </h2>
           <div className="mt-10 flex items-center gap-x-6 lg:mt-0 lg:shrink-0">
             <a
-              href="#"
+              href="/contact"
               className="shadow-xs rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-black hover:border hover:border-white hover:bg-black hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Say Hello
