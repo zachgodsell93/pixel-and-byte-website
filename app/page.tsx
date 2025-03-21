@@ -8,16 +8,7 @@ import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { List, ListItem } from '@/components/List'
 import { SectionIntro } from '@/components/SectionIntro'
 import { StylizedImage } from '@/components/StylizedImage'
-import { Testimonial } from '@/components/Testimonial'
-import logoBrightPath from '@/images/clients/bright-path/logo-light.svg'
-import logoFamilyFund from '@/images/clients/family-fund/logo-light.svg'
-import logoGreenLife from '@/images/clients/green-life/logo-light.svg'
-import logoHomeWork from '@/images/clients/home-work/logo-light.svg'
-import logoMailSmirk from '@/images/clients/mail-smirk/logo-light.svg'
-import logoNorthAdventures from '@/images/clients/north-adventures/logo-light.svg'
-import logoPhobiaDark from '@/images/clients/phobia/logo-dark.svg'
-import logoPhobiaLight from '@/images/clients/phobia/logo-light.svg'
-import logoUnseal from '@/images/clients/unseal/logo-light.svg'
+import screenshotN8n from '@/images/n8n-screenshot.png'
 import imageLaptop from '@/images/laptop.jpg'
 import logoAnthropic from '@/images/logos/Anthropic.png'
 import logoOpenAI from '@/images/logos/OpenAI.png'
@@ -132,11 +123,11 @@ function CaseStudies({
   )
 }
 
-function Services() {
+function AIServices() {
   return (
     <>
       <SectionIntro
-        eyebrow="Services"
+        eyebrow="Artificial Intelligence"
         title="We help you identify, explore and respond to new technologies."
         className="mt-24 sm:mt-32 lg:mt-40"
       >
@@ -150,7 +141,7 @@ function Services() {
           <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
             <FadeIn className="w-[33.75rem] flex-none lg:w-[45rem]">
               <StylizedImage
-                src={imageLaptop}
+                src={screenshotN8n}
                 sizes="(min-width: 1024px) 41rem, 31rem"
                 className="justify-center lg:justify-end"
               />
@@ -185,6 +176,67 @@ function Services() {
               strategic decision-making.
             </ListItem>
           </List>
+        </div>
+      </Container>
+    </>
+  )
+}
+
+function DevelopmentServices() {
+  return (
+    <>
+      <SectionIntro
+        eyebrow="Development"
+        title="We help you identify, explore and respond to new technologies."
+        className="mt-24 sm:mt-32 lg:mt-40"
+        flip
+      >
+        <p>
+          Before AI was barely a sparkle in someones eye, we were already
+          specializing in development and CRM development.
+        </p>
+      </SectionIntro>
+      <Container className="mt-16">
+        <div className="lg:flex lg:items-center lg:justify-end">
+          {/* TODO: Rewrite */}
+          <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
+            <ListItem title="Data Integration and ETL">
+              We specialize in developing sophisticated web applications
+              designed to automate and streamline complex tasks. Our agents are
+              built to learn, adapt, and execute processes, including tasks such
+              as automated inbox management, meeting scheduling, and customized
+              workflow operations.
+            </ListItem>
+            <ListItem title="CRM Development">
+              Our team excels in creating intelligent workflow automation
+              solutions. We leverage the latest AI frameworks and develop custom
+              logic to automate key business processes, allowing your team to
+              focus on strategic initiatives and core business functions.
+            </ListItem>
+            <ListItem title="App Development">
+              We build AI-driven customer service systems that provide
+              personalized and efficient support. Our solutions include
+              intelligent chatbots capable of resolving complex customer
+              inquiries and sentiment analysis tools that provide valuable
+              insights into customer feedback.
+            </ListItem>
+            <ListItem title="Web Development">
+              We transform raw data into actionable insights with our AI-powered
+              business analytics services. Our team develops custom dashboards
+              and reporting systems that deliver clear, comprehensive
+              visualizations of your business data, enabling informed and
+              strategic decision-making.
+            </ListItem>
+          </List>
+          <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
+            <FadeIn className="w-[33.75rem] flex-none lg:w-[45rem]">
+              <StylizedImage
+                src={imageLaptop}
+                sizes="(min-width: 1024px) 41rem, 31rem"
+                className="justify-center lg:justify-end"
+              />
+            </FadeIn>
+          </div>
         </div>
       </Container>
     </>
@@ -226,7 +278,8 @@ export default async function Home() {
         those annoying permission dialogs.
       </Testimonial> */}
 
-      <Services />
+      <AIServices />
+      <DevelopmentServices />
 
       <ContactSection />
     </>

@@ -9,6 +9,7 @@ export function SectionIntro({
   children,
   smaller = false,
   invert = false,
+  flip = false,
   ...props
 }: Omit<
   React.ComponentPropsWithoutRef<typeof Container>,
@@ -19,16 +20,17 @@ export function SectionIntro({
   children?: React.ReactNode
   smaller?: boolean
   invert?: boolean
+  flip?: boolean
 }) {
   return (
     <Container {...props}>
-      <FadeIn className="max-w-2xl">
+      <FadeIn className={clsx('max-w-2xl', flip && 'ml-auto text-right')}>
         <h2>
           {eyebrow && (
             <>
               <span
                 className={clsx(
-                  'mb-6 block font-display text-base font-semibold',
+                  'font-display mb-6 block text-base font-semibold',
                   invert ? 'text-white' : 'text-neutral-950',
                 )}
               >
@@ -39,7 +41,7 @@ export function SectionIntro({
           )}
           <span
             className={clsx(
-              'block font-display tracking-tight [text-wrap:balance]',
+              'font-display block tracking-tight [text-wrap:balance]',
               smaller
                 ? 'text-2xl font-semibold'
                 : 'text-4xl font-medium sm:text-5xl',
