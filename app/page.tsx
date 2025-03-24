@@ -128,12 +128,12 @@ function AIServices() {
     <>
       <SectionIntro
         eyebrow="Artificial Intelligence"
-        title="We help you identify, explore and respond to new technologies."
+        title="We help you identify, explore and adapt to the new world of AI"
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          AI is our bread and butter, but we also have a knack for development
-          and CRM development
+          We are all on AI, we know that it is the future, but we also know that
+          it is difficult to navigate.
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -148,27 +148,39 @@ function AIServices() {
             </FadeIn>
           </div>
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
-            <ListItem title="AI Agent Development">
+            <ListItem
+              title="AI Agent Development"
+              link="/services/ai-agent-development"
+            >
               We specialize in developing sophisticated AI agents designed to
               automate and streamline complex tasks. Our agents are built to
               learn, adapt, and execute processes, including tasks such as
               automated inbox management, meeting scheduling, and customized
               workflow operations.
             </ListItem>
-            <ListItem title="AI Workflow Automation">
+            <ListItem
+              title="AI Workflow Automation"
+              link="/services/ai-workflow-automation"
+            >
               Our team excels in creating intelligent workflow automation
               solutions. We leverage the latest AI frameworks and develop custom
               logic to automate key business processes, allowing your team to
               focus on strategic initiatives and core business functions.
             </ListItem>
-            <ListItem title="AI-Enhanced Customer Service">
+            <ListItem
+              title="Conversational AI"
+              link="/services/ai-enhanced-customer-service"
+            >
               We build AI-driven customer service systems that provide
               personalized and efficient support. Our solutions include
               intelligent chatbots capable of resolving complex customer
               inquiries and sentiment analysis tools that provide valuable
               insights into customer feedback.
             </ListItem>
-            <ListItem title="AI Powered Business Analytics">
+            <ListItem
+              title="Data Analytics & BI with AI"
+              link="/services/ai-powered-business-analytics"
+            >
               We transform raw data into actionable insights with our AI-powered
               business analytics services. Our team develops custom dashboards
               and reporting systems that deliver clear, comprehensive
@@ -182,66 +194,66 @@ function AIServices() {
   )
 }
 
-function DevelopmentServices() {
-  return (
-    <>
-      <SectionIntro
-        eyebrow="Development"
-        title="We help you identify, explore and respond to new technologies."
-        className="mt-24 sm:mt-32 lg:mt-40"
-        flip
-      >
-        <p>
-          Before AI was barely a sparkle in someones eye, we were already
-          specializing in development and CRM development.
-        </p>
-      </SectionIntro>
-      <Container className="mt-16">
-        <div className="lg:flex lg:items-center lg:justify-end">
-          {/* TODO: Rewrite */}
-          <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
-            <ListItem title="Data Integration and ETL">
-              We specialize in developing sophisticated web applications
-              designed to automate and streamline complex tasks. Our agents are
-              built to learn, adapt, and execute processes, including tasks such
-              as automated inbox management, meeting scheduling, and customized
-              workflow operations.
-            </ListItem>
-            <ListItem title="CRM Development">
-              Our team excels in creating intelligent workflow automation
-              solutions. We leverage the latest AI frameworks and develop custom
-              logic to automate key business processes, allowing your team to
-              focus on strategic initiatives and core business functions.
-            </ListItem>
-            <ListItem title="App Development">
-              We build AI-driven customer service systems that provide
-              personalized and efficient support. Our solutions include
-              intelligent chatbots capable of resolving complex customer
-              inquiries and sentiment analysis tools that provide valuable
-              insights into customer feedback.
-            </ListItem>
-            <ListItem title="Web Development">
-              We transform raw data into actionable insights with our AI-powered
-              business analytics services. Our team develops custom dashboards
-              and reporting systems that deliver clear, comprehensive
-              visualizations of your business data, enabling informed and
-              strategic decision-making.
-            </ListItem>
-          </List>
-          <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
-            <FadeIn className="w-[33.75rem] flex-none lg:w-[45rem]">
-              <StylizedImage
-                src={imageLaptop}
-                sizes="(min-width: 1024px) 41rem, 31rem"
-                className="justify-center lg:justify-end"
-              />
-            </FadeIn>
-          </div>
-        </div>
-      </Container>
-    </>
-  )
-}
+// function DevelopmentServices() {
+//   return (
+//     <>
+//       <SectionIntro
+//         eyebrow="Development"
+//         title="We help you identify, explore and respond to new technologies."
+//         className="mt-24 sm:mt-32 lg:mt-40"
+//         flip
+//       >
+//         <p>
+//           Before AI was barely a sparkle in someones eye, we were already
+//           specializing in development and CRM development.
+//         </p>
+//       </SectionIntro>
+//       <Container className="mt-16">
+//         <div className="lg:flex lg:items-center lg:justify-end">
+//           {/* TODO: Rewrite */}
+//           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
+//             <ListItem title="Data Integration and ETL">
+//               We specialize in developing sophisticated web applications
+//               designed to automate and streamline complex tasks. Our agents are
+//               built to learn, adapt, and execute processes, including tasks such
+//               as automated inbox management, meeting scheduling, and customized
+//               workflow operations.
+//             </ListItem>
+//             <ListItem title="CRM Development">
+//               Our team excels in creating intelligent workflow automation
+//               solutions. We leverage the latest AI frameworks and develop custom
+//               logic to automate key business processes, allowing your team to
+//               focus on strategic initiatives and core business functions.
+//             </ListItem>
+//             <ListItem title="App Development">
+//               We build AI-driven customer service systems that provide
+//               personalized and efficient support. Our solutions include
+//               intelligent chatbots capable of resolving complex customer
+//               inquiries and sentiment analysis tools that provide valuable
+//               insights into customer feedback.
+//             </ListItem>
+//             <ListItem title="Web Development">
+//               We transform raw data into actionable insights with our AI-powered
+//               business analytics services. Our team develops custom dashboards
+//               and reporting systems that deliver clear, comprehensive
+//               visualizations of your business data, enabling informed and
+//               strategic decision-making.
+//             </ListItem>
+//           </List>
+//           <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
+//             <FadeIn className="w-[33.75rem] flex-none lg:w-[45rem]">
+//               <StylizedImage
+//                 src={imageLaptop}
+//                 sizes="(min-width: 1024px) 41rem, 31rem"
+//                 className="justify-center lg:justify-end"
+//               />
+//             </FadeIn>
+//           </div>
+//         </div>
+//       </Container>
+//     </>
+//   )
+// }
 
 export const metadata: Metadata = {
   description:
@@ -279,7 +291,7 @@ export default async function Home() {
       </Testimonial> */}
 
       <AIServices />
-      <DevelopmentServices />
+      {/* <DevelopmentServices /> */}
 
       <ContactSection />
     </>
