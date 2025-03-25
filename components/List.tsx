@@ -25,22 +25,34 @@ export function ListItem({
   children,
   title,
   link,
+  invert,
 }: {
   children: React.ReactNode
   title?: string
   link?: string
+  invert?: boolean
 }) {
   return (
     <li className="group mt-10 first:mt-0">
       <FadeIn>
-        <Border className="pt-10 group-first:pt-0 group-first:before:hidden group-first:after:hidden">
+        <Border
+          invert={invert}
+          className="pt-10 group-first:pt-0 group-first:before:hidden group-first:after:hidden"
+        >
           {title && (
-            <strong className="font-semibold text-neutral-950">{`${title}. `}</strong>
+            <strong
+              className={clsx(
+                'font-semibold text-neutral-950',
+                invert && 'text-white',
+              )}
+            >{`${title}. `}</strong>
           )}
           {children}
           {link && (
             <div className="mt-4">
-              <Button href={link}>Learn more</Button>
+              <Button href={link} invert={invert}>
+                Learn more
+              </Button>
             </div>
           )}
         </Border>

@@ -63,6 +63,178 @@ function Clients() {
   )
 }
 
+function AIServices() {
+  return (
+    <>
+      <SectionIntro
+        eyebrow="Artificial Intelligence"
+        title="We help you identify, explore and adapt to the new world of AI"
+        className="mt-24 sm:mt-32 lg:mt-40"
+      >
+        <p>
+          We are all on AI, we know that it is the future, but we also know that
+          it is difficult to navigate.
+        </p>
+      </SectionIntro>
+      <Container className="mt-16">
+        <div className="lg:flex lg:items-center lg:justify-end">
+          <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
+            <FadeIn className="w-[33.75rem] flex-none lg:w-[45rem]">
+              <StylizedImage
+                src={screenshotN8n}
+                sizes="(min-width: 1024px) 41rem, 31rem"
+                className="justify-center lg:justify-end"
+              />
+            </FadeIn>
+          </div>
+          <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
+            <ListItem
+              title="Autonomous Agent Development"
+              link="/services/ai-agent-development"
+            >
+              We specialize in developing sophisticated autonomous AI agents
+              designed to automate and streamline complex tasks. Our agents are
+              built to learn, adapt, and execute processes, including tasks such
+              as automated inbox management, meeting scheduling, and customized
+              workflow operations.
+            </ListItem>
+            <ListItem
+              title="AI Workflow Automation"
+              link="/services/ai-workflow-automation"
+            >
+              Our team excels in creating intelligent workflow automation
+              solutions. We leverage the latest AI frameworks and develop custom
+              logic to automate key business processes, allowing your team to
+              focus on strategic initiatives and core business functions.
+            </ListItem>
+            <ListItem
+              title="Conversational AI (Chatbots)"
+              link="/services/conversational-ai
+              "
+            >
+              We build AI-driven customer service systems that provide
+              personalized and efficient support. Our solutions include
+              intelligent chatbots capable of resolving complex customer
+              inquiries and sentiment analysis tools that provide valuable
+              insights into customer feedback.
+            </ListItem>
+            <ListItem
+              title="Voice AI Agents"
+              link="/services/ai-powered-voice-agents"
+            >
+              We build AI-powered voice assistants that can handle complex
+              tasks, such as scheduling, customer support, and data entry. Our
+              solutions leverage natural language processing and machine
+              learning to provide personalized and efficient interactions.
+            </ListItem>
+          </List>
+        </div>
+      </Container>
+    </>
+  )
+}
+
+function AIServicesTwo() {
+  return (
+    <div className="rounded-4xl bg-black pb-10">
+      <SectionIntro
+        eyebrow="Data and Consulting"
+        title="We help you identify, explore and respond to new technologies."
+        className="mt-24 sm:mt-16 sm:pt-16 lg:mt-20 lg:pt-20"
+        flip
+        invert
+      >
+        <p>
+          Before AI was barely a sparkle in someones eye, we were already
+          specializing in development and CRM development.
+        </p>
+      </SectionIntro>
+      <Container className="mt-16">
+        <div className="lg:flex lg:items-center lg:justify-end">
+          <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
+            <ListItem
+              title="Enterprise Consulting"
+              link="/services/enterprise-consultancy"
+              invert
+            >
+              <span className="text-neutral-400">
+                We provide expert guidance and recommendations to help you
+                navigate the complex landscape of AI and machine learning. Our
+                team of consultants will help you identify the right AI
+                solutions for your business and develop a strategy to implement
+                them effectively.
+              </span>
+            </ListItem>
+            <ListItem
+              title="Data Analytics & BI with AI"
+              link="/services/ai-powered-business-analytics"
+              invert
+            >
+              We transform raw data into actionable insights with our AI-powered
+              business analytics services. Our team develops custom dashboards
+              and reporting systems that deliver clear, comprehensive
+              visualizations of your business data, enabling informed and
+              strategic decision-making.
+            </ListItem>
+          </List>
+          <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
+            <FadeIn className="w-[33.75rem] flex-none lg:w-[45rem]">
+              <StylizedImage
+                src={imageLaptop}
+                sizes="(min-width: 1024px) 41rem, 31rem"
+                className="justify-center lg:justify-end"
+              />
+            </FadeIn>
+          </div>
+        </div>
+      </Container>
+    </div>
+  )
+}
+
+export const metadata: Metadata = {
+  description:
+    'Pixel and Byte empowers you with cutting-edge AI solutions. We make AI integration seamless and straightforward.',
+}
+
+export default async function Home() {
+  let caseStudies = (await loadCaseStudies()).slice(0, 3)
+
+  return (
+    <>
+      <Container className="mt-24 sm:mt-32 md:mt-56">
+        <FadeIn className="max-w-3xl">
+          <h1 className="text-5xl font-bold uppercase tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
+            Bringing Clarity to AI: Making It Black and White.
+          </h1>
+          <p className="mt-6 text-xl text-neutral-600">
+            Pixel and Byte delivers AI automation, agents, and chatbots that are
+            easy to implement and understand. No more confusion.
+          </p>
+        </FadeIn>
+      </Container>
+
+      <Clients />
+
+      {/* <CaseStudies caseStudies={caseStudies} /> */}
+
+      {/* <Testimonial
+        className="mt-24 sm:mt-32 lg:mt-40"
+        client={{ name: 'Phobia', logo: logoPhobiaDark }}
+      >
+        The team at Studio went above and beyond with our onboarding, even
+        finding a way to access the user’s microphone without triggering one of
+        those annoying permission dialogs.
+      </Testimonial> */}
+
+      <AIServices />
+      <AIServicesTwo />
+
+      <ContactSection />
+    </>
+  )
+}
+
 function CaseStudies({
   caseStudies,
 }: {
@@ -119,181 +291,6 @@ function CaseStudies({
           ))}
         </FadeInStagger>
       </Container>
-    </>
-  )
-}
-
-function AIServices() {
-  return (
-    <>
-      <SectionIntro
-        eyebrow="Artificial Intelligence"
-        title="We help you identify, explore and adapt to the new world of AI"
-        className="mt-24 sm:mt-32 lg:mt-40"
-      >
-        <p>
-          We are all on AI, we know that it is the future, but we also know that
-          it is difficult to navigate.
-        </p>
-      </SectionIntro>
-      <Container className="mt-16">
-        <div className="lg:flex lg:items-center lg:justify-end">
-          <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
-            <FadeIn className="w-[33.75rem] flex-none lg:w-[45rem]">
-              <StylizedImage
-                src={screenshotN8n}
-                sizes="(min-width: 1024px) 41rem, 31rem"
-                className="justify-center lg:justify-end"
-              />
-            </FadeIn>
-          </div>
-          <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
-            <ListItem
-              title="AI Agent Development"
-              link="/services/ai-agent-development"
-            >
-              We specialize in developing sophisticated AI agents designed to
-              automate and streamline complex tasks. Our agents are built to
-              learn, adapt, and execute processes, including tasks such as
-              automated inbox management, meeting scheduling, and customized
-              workflow operations.
-            </ListItem>
-            <ListItem
-              title="AI Workflow Automation"
-              link="/services/ai-workflow-automation"
-            >
-              Our team excels in creating intelligent workflow automation
-              solutions. We leverage the latest AI frameworks and develop custom
-              logic to automate key business processes, allowing your team to
-              focus on strategic initiatives and core business functions.
-            </ListItem>
-            <ListItem
-              title="Conversational AI"
-              link="/services/ai-enhanced-customer-service"
-            >
-              We build AI-driven customer service systems that provide
-              personalized and efficient support. Our solutions include
-              intelligent chatbots capable of resolving complex customer
-              inquiries and sentiment analysis tools that provide valuable
-              insights into customer feedback.
-            </ListItem>
-            <ListItem
-              title="Data Analytics & BI with AI"
-              link="/services/ai-powered-business-analytics"
-            >
-              We transform raw data into actionable insights with our AI-powered
-              business analytics services. Our team develops custom dashboards
-              and reporting systems that deliver clear, comprehensive
-              visualizations of your business data, enabling informed and
-              strategic decision-making.
-            </ListItem>
-          </List>
-        </div>
-      </Container>
-    </>
-  )
-}
-
-// function DevelopmentServices() {
-//   return (
-//     <>
-//       <SectionIntro
-//         eyebrow="Development"
-//         title="We help you identify, explore and respond to new technologies."
-//         className="mt-24 sm:mt-32 lg:mt-40"
-//         flip
-//       >
-//         <p>
-//           Before AI was barely a sparkle in someones eye, we were already
-//           specializing in development and CRM development.
-//         </p>
-//       </SectionIntro>
-//       <Container className="mt-16">
-//         <div className="lg:flex lg:items-center lg:justify-end">
-//           {/* TODO: Rewrite */}
-//           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
-//             <ListItem title="Data Integration and ETL">
-//               We specialize in developing sophisticated web applications
-//               designed to automate and streamline complex tasks. Our agents are
-//               built to learn, adapt, and execute processes, including tasks such
-//               as automated inbox management, meeting scheduling, and customized
-//               workflow operations.
-//             </ListItem>
-//             <ListItem title="CRM Development">
-//               Our team excels in creating intelligent workflow automation
-//               solutions. We leverage the latest AI frameworks and develop custom
-//               logic to automate key business processes, allowing your team to
-//               focus on strategic initiatives and core business functions.
-//             </ListItem>
-//             <ListItem title="App Development">
-//               We build AI-driven customer service systems that provide
-//               personalized and efficient support. Our solutions include
-//               intelligent chatbots capable of resolving complex customer
-//               inquiries and sentiment analysis tools that provide valuable
-//               insights into customer feedback.
-//             </ListItem>
-//             <ListItem title="Web Development">
-//               We transform raw data into actionable insights with our AI-powered
-//               business analytics services. Our team develops custom dashboards
-//               and reporting systems that deliver clear, comprehensive
-//               visualizations of your business data, enabling informed and
-//               strategic decision-making.
-//             </ListItem>
-//           </List>
-//           <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
-//             <FadeIn className="w-[33.75rem] flex-none lg:w-[45rem]">
-//               <StylizedImage
-//                 src={imageLaptop}
-//                 sizes="(min-width: 1024px) 41rem, 31rem"
-//                 className="justify-center lg:justify-end"
-//               />
-//             </FadeIn>
-//           </div>
-//         </div>
-//       </Container>
-//     </>
-//   )
-// }
-
-export const metadata: Metadata = {
-  description:
-    'Pixel and Byte empowers you with cutting-edge AI solutions. We make AI integration seamless and straightforward.',
-}
-
-export default async function Home() {
-  let caseStudies = (await loadCaseStudies()).slice(0, 3)
-
-  return (
-    <>
-      <Container className="mt-24 sm:mt-32 md:mt-56">
-        <FadeIn className="max-w-3xl">
-          <h1 className="text-5xl font-bold uppercase tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
-            Bringing Clarity to AI: Making It Black and White.
-          </h1>
-          <p className="mt-6 text-xl text-neutral-600">
-            Pixel and Byte delivers AI automation, agents, and chatbots that are
-            easy to implement and understand. No more confusion.
-          </p>
-        </FadeIn>
-      </Container>
-
-      <Clients />
-
-      {/* <CaseStudies caseStudies={caseStudies} /> */}
-
-      {/* <Testimonial
-        className="mt-24 sm:mt-32 lg:mt-40"
-        client={{ name: 'Phobia', logo: logoPhobiaDark }}
-      >
-        The team at Studio went above and beyond with our onboarding, even
-        finding a way to access the user’s microphone without triggering one of
-        those annoying permission dialogs.
-      </Testimonial> */}
-
-      <AIServices />
-      {/* <DevelopmentServices /> */}
-
-      <ContactSection />
     </>
   )
 }
