@@ -118,49 +118,48 @@ function Values() {
 }
 
 export const metadata: Metadata = {
-  title: 'Our Process',
-  description:
-    'We believe in efficiency and maximizing our resources to provide the best value to our clients.',
+  title: 'AI Powered Business Analytics',
+  description: 'Advanced AI Business Analytics and Data',
 }
 
 export default function Page() {
   const content = [
     {
-      title: 'Advanced Agent Architecture',
+      title: 'Predictive Intelligence',
       description:
-        'Custom-designed AI agents with deep reasoning capabilities, engineered to tackle your most sophisticated business problems and operational complexities.',
+        'Forward-looking analytics that forecast trends, identify opportunities, and anticipate challenges before they become apparent.',
     },
     {
-      title: 'Adaptive Learning Frameworks',
+      title: 'Interactive AI Dashboards',
       description:
-        'Intelligent systems that continuously learn, improve, and optimize performance through real-world interactions and advanced machine learning techniques.',
+        'Intuitive, AI-powered visualization tools that transform complex data into clear, actionable strategic narratives.',
     },
     {
-      title: 'Multi-System Intelligence',
+      title: 'Automated Insight Generation',
       description:
-        'Develop AI agents capable of seamlessly navigating complex software ecosystems, breaking down technological barriers and connecting disparate business processes.',
+        'Continuous data analysis that surfaces critical findings and recommendations without manual intervention.',
     },
     {
-      title: 'Autonomous Decision Making',
+      title: 'Unified Data Architecture',
       description:
-        'Create intelligent agents that can analyze intricate scenarios, make strategic decisions, and take proactive actions with minimal human intervention.',
+        'Comprehensive data integration solutions that break down silos and create a holistic view of your organizational intelligence.',
     },
     {
-      title: 'Ethical AI Governance',
+      title: 'Custom Analytics Frameworks',
       description:
-        'Implement robust safeguards and transparent decision-making protocols to ensure reliability, fairness, and accountability in every AI agent deployment.',
+        'Tailored reporting and analysis solutions precisely aligned with your specific business objectives, KPIs, and strategic questions.',
     },
   ]
   return (
     <>
       <PageIntro
-        eyebrow="AI Agent Development"
-        title="Build intelligent digital teammates that work harder, smarter, and never ask for a coffee break."
+        eyebrow="AI Powered Business Analytics"
+        title="Turn data chaos into your competitive superpower."
       >
         <p>
-          Cutting-edge AI agents designed to solve complex problems, automate
-          intricate processes, and extend your team's capabilities beyond human
-          limitations.
+          Advanced analytics platforms that reveal hidden patterns, predict
+          outcomes, and generate actionable insights that drive strategic
+          decision-making.
         </p>
       </PageIntro>
 

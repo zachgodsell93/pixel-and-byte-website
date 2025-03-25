@@ -118,49 +118,48 @@ function Values() {
 }
 
 export const metadata: Metadata = {
-  title: 'Our Process',
-  description:
-    'We believe in efficiency and maximizing our resources to provide the best value to our clients.',
+  title: 'AI Powered Voice Agents',
+  description: 'Advanced AI Voice Agents and Chatbots',
 }
 
 export default function Page() {
   const content = [
     {
-      title: 'Advanced Agent Architecture',
+      title: 'Natural Language Understanding',
       description:
-        'Custom-designed AI agents with deep reasoning capabilities, engineered to tackle your most sophisticated business problems and operational complexities.',
+        'Cutting-edge speech recognition and contextual comprehension that goes far beyond traditional voice interfaces.',
     },
     {
-      title: 'Adaptive Learning Frameworks',
+      title: 'Multimodal Interaction',
       description:
-        'Intelligent systems that continuously learn, improve, and optimize performance through real-world interactions and advanced machine learning techniques.',
+        'Voice AI agents capable of processing and responding across text, audio, and visual communication channels.',
     },
     {
-      title: 'Multi-System Intelligence',
+      title: 'Personalization Engines',
       description:
-        'Develop AI agents capable of seamlessly navigating complex software ecosystems, breaking down technological barriers and connecting disparate business processes.',
+        'Adaptive voice experiences that learn individual user preferences and communication styles.',
     },
     {
-      title: 'Autonomous Decision Making',
+      title: 'Enterprise-Grade Deployment',
       description:
-        'Create intelligent agents that can analyze intricate scenarios, make strategic decisions, and take proactive actions with minimal human intervention.',
+        'Secure, scalable voice AI solutions that integrate seamlessly with existing business communication infrastructures.',
     },
     {
-      title: 'Ethical AI Governance',
+      title: 'Accent and Dialect Intelligence',
       description:
-        'Implement robust safeguards and transparent decision-making protocols to ensure reliability, fairness, and accountability in every AI agent deployment.',
+        'Advanced linguistic models that ensure accurate understanding across diverse language variations and communication styles.',
     },
   ]
   return (
     <>
       <PageIntro
-        eyebrow="AI Agent Development"
-        title="Build intelligent digital teammates that work harder, smarter, and never ask for a coffee break."
+        eyebrow="AI Powered Voice Agents"
+        title="Voice interfaces that listen, understand, and act with human-like precision."
       >
         <p>
-          Cutting-edge AI agents designed to solve complex problems, automate
-          intricate processes, and extend your team's capabilities beyond human
-          limitations.
+          Advanced voice AI solutions that transform audio interactions into
+          intelligent, context-aware experiences across multiple platforms and
+          use cases.
         </p>
       </PageIntro>
 

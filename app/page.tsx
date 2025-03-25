@@ -16,6 +16,7 @@ import logoEinstein from '@/images/logos/Eisntein.png'
 import logoGemini from '@/images/logos/Gemini.png'
 import logoMake from '@/images/logos/Make.png'
 import logoN8n from '@/images/logos/N8N.png'
+import logoLong from '@/images/logo-bw-long.png'
 
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 
@@ -197,8 +198,27 @@ export const metadata: Metadata = {
     'Pixel and Byte empowers you with cutting-edge AI solutions. We make AI integration seamless and straightforward.',
 }
 
+function ComingSoon() {
+  return (
+    <Container className="mt-40">
+      <FadeIn>
+        <Image src={logoLong} alt="Studio" />
+        <h2 className="font-display text-2xl font-semibold text-neutral-950">
+          Coming Soon
+        </h2>
+      </FadeIn>
+    </Container>
+  )
+}
+
 export default async function Home() {
   let caseStudies = (await loadCaseStudies()).slice(0, 3)
+
+  const comingSoon = true
+
+  if (comingSoon) {
+    return <ComingSoon />
+  }
 
   return (
     <>

@@ -118,9 +118,9 @@ function Values() {
 }
 
 export const metadata: Metadata = {
-  title: 'Our Process',
+  title: 'AI Agent Development',
   description:
-    'We believe in efficiency and maximizing our resources to provide the best value to our clients.',
+    "Cutting edge AI agents designed to solve complex problems, automate intricate processes, and extend your team's capabilities beyond human limitations.",
 }
 
 export default function Page() {

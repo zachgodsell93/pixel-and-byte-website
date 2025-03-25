@@ -20,6 +20,7 @@ import logoPhobia from '@/images/clients/phobia/logo-dark.svg'
 import logoUnseal from '@/images/clients/unseal/logo-dark.svg'
 import { formatDate } from '@/lib/formatDate'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
+import logoLong from '@/images/logo-bw-long.png'
 
 function CaseStudies({
   caseStudies,
@@ -124,7 +125,7 @@ function Clients() {
           {clients.map(([client, logo]) => (
             <li key={client} className="group">
               <FadeIn className="overflow-hidden">
-                <Border className="pt-12 group-nth-[-n+2]:-mt-px sm:group-nth-3:-mt-px lg:group-nth-4:-mt-px">
+                <Border className="group-nth-[-n+2]:-mt-px sm:group-nth-3:-mt-px lg:group-nth-4:-mt-px pt-12">
                   <Image src={logo} alt={client} unoptimized />
                 </Border>
               </FadeIn>
@@ -144,6 +145,11 @@ export const metadata: Metadata = {
 
 export default async function Work() {
   let caseStudies = await loadCaseStudies()
+  const comingSoon = true
+
+  if (comingSoon) {
+    return <ComingSoon />
+  }
 
   return (
     <>
@@ -172,5 +178,18 @@ export default async function Work() {
 
       <ContactSection />
     </>
+  )
+}
+
+function ComingSoon() {
+  return (
+    <Container className="mt-40">
+      <FadeIn>
+        <Image src={logoLong} alt="Studio" />
+        <h2 className="font-display text-2xl font-semibold text-neutral-950">
+          Coming Soon
+        </h2>
+      </FadeIn>
+    </Container>
   )
 }
