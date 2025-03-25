@@ -20,7 +20,6 @@ import logoPhobia from '@/images/clients/phobia/logo-dark.svg'
 import logoUnseal from '@/images/clients/unseal/logo-dark.svg'
 import { formatDate } from '@/lib/formatDate'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
-import logoLong from '@/images/logo-bw-long.png'
 
 function CaseStudies({
   caseStudies,
@@ -145,11 +144,6 @@ export const metadata: Metadata = {
 
 export default async function Work() {
   let caseStudies = await loadCaseStudies()
-  const comingSoon = true
-
-  if (comingSoon) {
-    return <ComingSoon />
-  }
 
   return (
     <>
@@ -178,18 +172,5 @@ export default async function Work() {
 
       <ContactSection />
     </>
-  )
-}
-
-function ComingSoon() {
-  return (
-    <Container className="mt-40">
-      <FadeIn>
-        <Image src={logoLong} alt="Studio" />
-        <h2 className="font-display text-2xl font-semibold text-neutral-950">
-          Coming Soon
-        </h2>
-      </FadeIn>
-    </Container>
   )
 }
