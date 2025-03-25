@@ -126,41 +126,41 @@ export const metadata: Metadata = {
 export default function Page() {
   const content = [
     {
-      title: 'Advanced Agent Architecture',
+      title: 'Custom Bot Development',
       description:
-        'Custom-designed AI agents with deep reasoning capabilities, engineered to tackle your most sophisticated business problems and operational complexities.',
+        'Design and implement chatbots with nuanced personalities that align perfectly with your brand voice and business objectives.',
     },
     {
-      title: 'Adaptive Learning Frameworks',
+      title: 'Contextual Intelligence',
       description:
-        'Intelligent systems that continuously learn, improve, and optimize performance through real-world interactions and advanced machine learning techniques.',
+        'Advanced natural language processing that understands intent, manages complex conversations, and provides human-like interactions.',
     },
     {
-      title: 'Multi-System Intelligence',
+      title: 'Omnichannel Deployment',
       description:
-        'Develop AI agents capable of seamlessly navigating complex software ecosystems, breaking down technological barriers and connecting disparate business processes.',
+        'Seamless implementation across websites, messaging platforms, mobile apps, and voice interfaces to meet customers wherever they are.',
     },
     {
-      title: 'Autonomous Decision Making',
+      title: 'Continuous Learning',
       description:
-        'Create intelligent agents that can analyze intricate scenarios, make strategic decisions, and take proactive actions with minimal human intervention.',
+        'Rigorous training and optimization frameworks that continuously improve bot performance based on real interaction analytics.',
     },
     {
-      title: 'Ethical AI Governance',
+      title: 'Enterprise Integration',
       description:
-        'Implement robust safeguards and transparent decision-making protocols to ensure reliability, fairness, and accountability in every AI agent deployment.',
+        'Deep integration with your CRM, knowledge bases, and business systems to deliver personalized, data-driven customer experiences.',
     },
   ]
   return (
     <>
       <PageIntro
-        eyebrow="AI Agent Development"
-        title="Build intelligent digital teammates that work harder, smarter, and never ask for a coffee break."
+        eyebrow="Conversation AI(Chatbots)"
+        title="Conversations that convert, support, and delight – without the human error."
       >
         <p>
-          Cutting-edge AI agents designed to solve complex problems, automate
-          intricate processes, and extend your team's capabilities beyond human
-          limitations.
+          Purpose-built conversational experiences that understand context,
+          solve problems, and represent your brand with unprecedented
+          intelligence.
         </p>
       </PageIntro>
 

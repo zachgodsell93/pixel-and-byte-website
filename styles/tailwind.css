@@ -29,11 +29,14 @@
 
   --radius-4xl: 2.5rem;
 
-  --font-sans: heue, ui-sans-serif, system-ui, sans-serif,
+  --font-sans: 'Mona Sans', ui-sans-serif, system-ui, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
-  --font-display: heue, ui-sans-serif, system-ui, sans-serif,
+  --font-display: 'Neue Haas Display', ui-sans-serif, system-ui, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+   
+    /* --font-display: 'Mona Sans', ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; */
 
   --font-display--font-variation-settings: 'wdth' 125;
 

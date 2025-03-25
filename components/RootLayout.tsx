@@ -143,8 +143,8 @@ function Navigation() {
         <NavigationItem href="/process">Process</NavigationItem>
       </NavigationRow>
       <NavigationRow>
-        <NavigationItem href="/work">Work</NavigationItem>
         <NavigationItem href="/about">About Us</NavigationItem>
+        <NavigationItem href="/contact">Contact Us</NavigationItem>
       </NavigationRow>
 
       {/* <NavigationRow>
@@ -291,12 +291,12 @@ export function RootLayout({ children }: { children: React.ReactNode }) {
 
 const navigation = {
   main: [
-    { name: 'About', href: '#' },
-    { name: 'Blog', href: '#' },
-    { name: 'Jobs', href: '#' },
-    { name: 'Press', href: '#' },
-    { name: 'Accessibility', href: '#' },
-    { name: 'Partners', href: '#' },
+    { name: 'About', href: '/about' },
+    { name: 'Contact', href: '/contact' },
+    { name: 'Privacy', href: '#' },
+    { name: 'Terms', href: '#' },
+    // { name: 'Accessibility', href: '#' },
+    // { name: 'Partners', href: '#' },
   ],
   social: [
     {
@@ -383,7 +383,7 @@ export function Footer() {
           ))}
         </nav>
         <div className="mt-16 flex justify-center gap-x-10">
-          {navigation.social.map((item) => (
+          {/* {navigation.social.map((item) => (
             <a
               key={item.name}
               href={item.href}
@@ -392,7 +392,8 @@ export function Footer() {
               <span className="sr-only">{item.name}</span>
               <item.icon aria-hidden="true" className="size-6" />
             </a>
-          ))}
+          ))} */}
+          <Image src={BwInvertedLogo} alt="Logo" width={100} height={100} />
         </div>
         <p className="mt-10 text-center text-sm/6 text-gray-600">
           &copy; {currentYear} Pixel and Byte Ptd Ltd. All rights reserved.

@@ -33,7 +33,7 @@ function ComingSoon() {
 }
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const comingSoon = true
+  const comingSoon = process.env.NODE_ENV === 'production'
   if (comingSoon) {
     return (
       <html lang="en" className="h-full bg-neutral-50 text-base antialiased">

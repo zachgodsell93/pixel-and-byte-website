@@ -92,7 +92,7 @@ export function Footer() {
             </a>
           ))}
         </nav>
-        <div className="mt-16 flex justify-center gap-x-10">
+        {/* <div className="mt-16 flex justify-center gap-x-10">
           {navigation.social.map((item) => (
             <a
               key={item.name}
@@ -103,7 +103,7 @@ export function Footer() {
               <item.icon aria-hidden="true" className="size-6" />
             </a>
           ))}
-        </div>
+        </div> */}
         <p className="mt-10 text-center text-sm/6 text-gray-600">
           &copy; {currentYear} Pixel and Byte Ptd Ltd. All rights reserved.
         </p>

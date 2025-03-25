@@ -23,32 +23,35 @@ import imageLeslieAlexander from '@/images/team/leslie-alexander.jpg'
 import imageMichaelFoster from '@/images/team/michael-foster.jpg'
 import imageWhitneyFrancis from '@/images/team/whitney-francis.jpg'
 import { loadArticles } from '@/lib/mdx'
+import { Values } from '@/components/Values'
 
 function Culture() {
   return (
-    <div className="mt-24 rounded-4xl bg-neutral-950 py-24 sm:mt-32 lg:mt-40 lg:py-32">
+    <div className="rounded-4xl mt-24 bg-neutral-950 py-24 sm:mt-32 lg:mt-40 lg:py-32">
       <SectionIntro
         eyebrow="Our culture"
-        title="Balance your passion with your passion for life."
+        title="Where AI innovation meets human ingenuity"
         invert
       >
         <p>
-          We are a group of like-minded people who share the same core values.
+          We're united by our commitment to ethical innovation and meaningful
+          impact in everything we create.
         </p>
       </SectionIntro>
       <Container className="mt-16">
         <GridList>
-          <GridListItem title="Loyalty" invert>
-            Our team has been with us since the beginning because none of them
-            are allowed to have LinkedIn profiles.
+          <GridListItem title="Innovation Mindset" invert>
+            Encouraging team members to explore cutting-edge AI approaches and
+            stay ahead of industry developments.
           </GridListItem>
-          <GridListItem title="Trust" invert>
-            We don’t care when our team works just as long as they are working
-            every waking second.
+          <GridListItem title="Ethical" invert>
+            Building responsible AI solutions with consideration for fairness,
+            transparency, and societal impact.
           </GridListItem>
-          <GridListItem title="Compassion" invert>
-            You never know what someone is going through at home and we make
-            sure to never find out.
+          <GridListItem title="Velocity with Purpose" invert>
+            Prioritizing rapid development cycles without sacrificing quality,
+            moving quickly toward meaningful outcomes rather than speed for its
+            own sake
           </GridListItem>
         </GridList>
       </Container>
@@ -156,7 +159,7 @@ function Team() {
                             {...person.image}
                             className="h-96 w-full object-cover grayscale transition duration-500 motion-safe:group-hover:scale-105"
                           />
-                          <div className="absolute inset-0 flex flex-col justify-end bg-linear-to-t from-black to-black/0 to-40% p-6">
+                          <div className="bg-linear-to-t absolute inset-0 flex flex-col justify-end from-black to-black/0 to-40% p-6">
                             <p className="font-display text-base/6 font-semibold tracking-wide text-white">
                               {person.name}
                             </p>
@@ -218,15 +221,16 @@ export default async function About() {
       </Container>
 
       <Culture />
+      <Values flip />
 
-      <Team />
+      {/* <Team /> */}
 
-      <PageLinks
+      {/* <PageLinks
         className="mt-24 sm:mt-32 lg:mt-40"
         title="From the blog"
         intro="Our team of experienced designers and developers has just one thing on their mind; working on your ideas to draw a smile on the face of your users worldwide. From conducting Brand Sprints to UX Design."
         pages={blogArticles}
-      />
+      /> */}
 
       <ContactSection />
     </>

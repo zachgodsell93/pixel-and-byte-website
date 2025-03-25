@@ -171,11 +171,13 @@ function AIServicesTwo() {
               link="/services/ai-powered-business-analytics"
               invert
             >
-              We transform raw data into actionable insights with our AI-powered
-              business analytics services. Our team develops custom dashboards
-              and reporting systems that deliver clear, comprehensive
-              visualizations of your business data, enabling informed and
-              strategic decision-making.
+              <span className="text-neutral-400">
+                We transform raw data into actionable insights with our
+                AI-powered business analytics services. Our team develops custom
+                dashboards and reporting systems that deliver clear,
+                comprehensive visualizations of your business data, enabling
+                informed and strategic decision-making.
+              </span>
             </ListItem>
           </List>
           <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
@@ -214,18 +216,13 @@ function ComingSoon() {
 export default async function Home() {
   let caseStudies = (await loadCaseStudies()).slice(0, 3)
 
-  const comingSoon = true
-
-  if (comingSoon) {
-    return <ComingSoon />
-  }
-
   return (
     <>
       <Container className="mt-24 sm:mt-32 md:mt-56">
         <FadeIn className="max-w-3xl">
           <h1 className="text-5xl font-bold uppercase tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
-            Bringing Clarity to AI: Making It Black and White.
+            Bringing Clarity to AI: Making It Black and{' '}
+            <span className="bg-black text-white">White</span>.
           </h1>
           <p className="mt-6 text-xl text-neutral-600">
             Pixel and Byte delivers AI automation, agents, and chatbots that are
