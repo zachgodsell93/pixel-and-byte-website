@@ -16,6 +16,8 @@ import logoEinstein from '@/images/logos/Eisntein.png'
 import logoGemini from '@/images/logos/Gemini.png'
 import logoMake from '@/images/logos/Make.png'
 import logoN8n from '@/images/logos/N8N.png'
+import logoRelevance from '@/images/logos/relevance.png'
+import logoElevenLabs from '@/images/logos/elevenlabs.png'
 import logoLong from '@/images/logo-bw-long.png'
 
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
@@ -27,6 +29,8 @@ const clients = [
   ['Gemini', logoGemini],
   ['Make', logoMake],
   ['N8N', logoN8n],
+  ['Relevance', logoRelevance],
+  ['ElevenLabs', logoElevenLabs],
 ]
 
 function Clients() {

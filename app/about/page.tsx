@@ -184,7 +184,7 @@ function Team() {
 export const metadata: Metadata = {
   title: 'About Us',
   description:
-    'We believe that our strength lies in our collaborative approach, which puts our clients at the center of everything we do.',
+    'Transforming businesses through intelligent automation and strategic AI implementation..',
 }
 
 export default async function About() {
@@ -192,31 +192,38 @@ export default async function About() {
 
   return (
     <>
-      <PageIntro eyebrow="About us" title="Our strength is collaboration">
+      <PageIntro eyebrow="About us" title="AI Innovation at Scale">
         <p>
-          We believe that our strength lies in our collaborative approach, which
-          puts our clients at the center of everything we do.
+          Transforming businesses through intelligent automation and strategic
+          AI implementation.
         </p>
         <div className="mt-10 max-w-2xl space-y-6 text-base">
           <p>
-            Studio was started by three friends who noticed that developer
-            studios were charging clients double what an in-house team would
-            cost. Since the beginning, we have been committed to doing things
-            differently by charging triple instead.
+            We are a specialized AI development agency focused on creating
+            practical, powerful solutions that drive real business outcomes. Our
+            team brings together deep technical expertise in autonomous agents,
+            workflow automation, conversational interfaces, and voice AI with
+            strategic consulting experience that ensures technology serves your
+            business goals, not the other way around.
           </p>
           <p>
-            At Studio, we’re more than just colleagues — we’re a family. This
-            means we pay very little and expect people to work late. We want our
-            employees to bring their whole selves to work. In return, we just
-            ask that they keep themselves there until at least 6:30pm.
+            Founded on the principle that AI should be accessible and impactful
+            for organizations of all sizes, we take a collaborative approach to
+            every project. We work closely with our clients to understand their
+            unique challenges, develop tailored AI solutions that integrate
+            seamlessly with existing systems, and provide ongoing support to
+            ensure lasting value. Whether you're looking to automate routine
+            tasks, enhance customer experiences, or gain deeper insights from
+            your data, our proven methodologies and continuous innovation
+            deliver results that matter.
           </p>
         </div>
       </PageIntro>
       <Container className="mt-16">
         <StatList>
-          <StatListItem value="35" label="Underpaid employees" />
-          <StatListItem value="52" label="Placated clients" />
-          <StatListItem value="$25M" label="Invoices billed" />
+          <StatListItem value="14" label="Businesses adopting AI" />
+          <StatListItem value="93" label="AI Agents Deployed" />
+          <StatListItem value="$4M+" label="Cost Reduction" />
         </StatList>
       </Container>
 
