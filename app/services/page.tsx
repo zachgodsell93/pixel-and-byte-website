@@ -14,7 +14,13 @@ import { TagList, TagListItem } from '@/components/TagList'
 import imageLaptop from '@/images/laptop.jpg'
 import imageMeeting from '@/images/meeting.jpg'
 import imageWhiteboard from '@/images/whiteboard.jpg'
+import voiceai from '@/images/services/conversationalai.webp'
+import aiautomationworkflow from '@/images/services/aiautomationworkflow.jpeg'
+import aichatbot from '@/images/services/aichatbot.webp'
+import aibi from '@/images/services/aibi.webp'
 import { Values } from '@/components/Values'
+import { Button } from '@/components/Button'
+import Link from 'next/link'
 
 const content = [
   {
@@ -50,7 +56,7 @@ const content = [
     link: '/services/ai-workflow-automation',
     description:
       'Our team excels in creating intelligent workflow automation solutions. We leverage the latest AI frameworks and develop custom logic to automate key business processes, allowing your team to focus on strategic initiatives and core business functions.',
-    image: imageMeeting,
+    image: aiautomationworkflow,
     tags: [
       'Document Processing',
       'Approval Workflows',
@@ -64,7 +70,7 @@ const content = [
     link: '/services/conversational-ai',
     description:
       'We build AI-driven customer service systems that provide personalized and efficient support. Our solutions include intelligent chatbots capable of resolving complex customer inquiries and sentiment analysis tools that provide valuable insights into customer feedback.',
-    image: imageWhiteboard,
+    image: aichatbot,
     tags: [
       'Customer Support Chatbot',
       'Lead Generation Bot',
@@ -78,7 +84,7 @@ const content = [
     link: '/services/ai-powered-voice-agents',
     description:
       'We build AI-powered voice assistants that can handle complex tasks, such as scheduling, customer support, and data entry. Our solutions leverage natural language processing and machine learning to provide personalized and efficient interactions.',
-    image: imageWhiteboard,
+    image: voiceai,
     tags: [
       'Virtual Receptionist',
       'Voice Order Processing',
@@ -93,7 +99,7 @@ const content = [
     link: '/services/ai-powered-business-analytics',
     description:
       'We transform raw data into actionable insights with our AI-powered business analytics services. Our team develops custom dashboards and reporting systems that deliver clear, comprehensive visualizations of your business data, enabling informed and strategic decision-making.',
-    image: imageWhiteboard,
+    image: aibi,
     tags: [
       'Predictive Analytics',
       'Real-time Dashboards',
@@ -151,6 +157,10 @@ function Content() {
             <p>{item.description}</p>
           </div>
 
+          <Link href={item.link} className="cursor-pointer">
+            <Button className="my-4 cursor-pointer">Learn more →</Button>
+          </Link>
+
           <h3>Included in this phase</h3>
           <TagList className="mt-4">
             {item.tags.map((tag) => (
@@ -172,7 +182,7 @@ export const metadata: Metadata = {
 export default function Services() {
   return (
     <>
-      <PageIntro eyebrow="Our services" title="What we do">
+      <PageIntro eyebrow="Our capabilities" title="An AI Arsenal">
         <p>
           We believe in delivering exceptional value through proven expertise
           and innovative solutions. Our comprehensive suite of services is built
