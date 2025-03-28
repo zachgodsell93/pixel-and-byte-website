@@ -33,17 +33,17 @@ function ComingSoon() {
 }
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const comingSoon = process.env.NODE_ENV === 'production'
-  if (comingSoon) {
-    return (
-      <html lang="en" className="h-full bg-neutral-50 text-base antialiased">
-        <body className="flex min-h-full flex-col">
-          <ComingSoon />
-          <Analytics />
-        </body>
-      </html>
-    )
-  }
+  // const comingSoon = process.env.NODE_ENV === 'production'
+  // if (comingSoon) {
+  //   return (
+  //     <html lang="en" className="h-full bg-neutral-50 text-base antialiased">
+  //       <body className="flex min-h-full flex-col">
+  //         <ComingSoon />
+  //         <Analytics />
+  //       </body>
+  //     </html>
+  //   )
+  // }
   return (
     <html lang="en" className="h-full bg-neutral-950 text-base antialiased">
       <body className="flex min-h-full flex-col">
