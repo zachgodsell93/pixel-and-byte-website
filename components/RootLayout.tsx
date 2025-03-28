@@ -20,6 +20,7 @@ import { SocialMedia } from '@/components/SocialMedia'
 import Image from 'next/image'
 import BwLogo from '@/images/logo-bw-long.png'
 import BwInvertedLogo from '@/images/logo-bw-long.png'
+import EmailDialog from '@/components/EmailDialog'
 
 const RootLayoutContext = createContext<{
   logoHovered: boolean
@@ -59,6 +60,7 @@ function Header({
   invert?: boolean
 }) {
   let { logoHovered, setLogoHovered } = useContext(RootLayoutContext)!
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
 
   return (
     <Container>
@@ -76,8 +78,8 @@ function Header({
           />
         </Link>
         <div className="flex items-center gap-x-8">
-          <Button href="/contact" invert={invert}>
-            Contact us
+          <Button onClick={() => setIsDialogOpen(true)} invert={invert}>
+            Get our FREE AI Roadmap
           </Button>
           <button
             ref={toggleRef}
@@ -102,6 +104,7 @@ function Header({
           </button>
         </div>
       </div>
+      <EmailDialog isOpen={isDialogOpen} setIsOpen={setIsDialogOpen} />
     </Container>
   )
 }
@@ -155,6 +158,32 @@ function Navigation() {
   )
 }
 
+function NotificationBanner() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
+
+  return (
+    <div className="bg-neutral-950 py-3 text-white">
+      <Container>
+        <div className="flex flex-col items-center justify-between gap-2 sm:flex-row">
+          <div className="flex-1">
+            <h2 className="font-display text-center text-sm font-semibold tracking-tight text-white sm:text-left">
+              Get our FREE AI Roadmap
+            </h2>
+          </div>
+          <div className="flex-none">
+            <button
+              onClick={() => setIsDialogOpen(true)}
+              className="text-sm font-semibold text-white transition-colors hover:text-neutral-300"
+            >
+              Download Now →
+            </button>
+          </div>
+        </div>
+      </Container>
+    </div>
+  )
+}
+
 function RootLayoutInner({ children }: { children: React.ReactNode }) {
   let panelId = useId()
   let [expanded, setExpanded] = useState(false)
@@ -182,6 +211,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
 
   return (
     <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
+      {/* <NotificationBanner /> */}
       <header>
         <div
           className="absolute left-0 right-0 top-2 z-40 pt-14"
@@ -228,6 +258,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
                 }}
               />
             </div>
+
             <Navigation />
             <div className="relative bg-neutral-950 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-neutral-800">
               <Container>
