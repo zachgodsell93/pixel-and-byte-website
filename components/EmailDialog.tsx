@@ -15,9 +15,24 @@ export default function EmailDialog({
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+
+    const data = {
+      name: 'AI Roadmap Request',
+      email: email,
+      message: `${email} has requested the AI Roadmap`,
+    }
+
+    // Send email using Resend
+    await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
 
     // Simulating API call
     setTimeout(() => {
