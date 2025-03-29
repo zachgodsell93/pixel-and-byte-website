@@ -25,8 +25,8 @@ import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 const clients = [
   ['OpenAI', logoOpenAI],
   ['Anthropic', logoAnthropic],
-  ['Einstein', logoEinstein],
   ['Gemini', logoGemini],
+  ['Einstein', logoEinstein],
   ['Make', logoMake],
   ['N8N', logoN8n],
   ['Relevance', logoRelevance],
