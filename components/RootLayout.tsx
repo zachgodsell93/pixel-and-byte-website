@@ -22,6 +22,8 @@ import BwLogo from '@/images/logo-bw-long.png'
 import BwInvertedLogo from '@/images/logo-bw-long.png'
 import EmailDialog from '@/components/EmailDialog'
 
+import { usePlausible } from 'next-plausible'
+
 const RootLayoutContext = createContext<{
   logoHovered: boolean
   setLogoHovered: React.Dispatch<React.SetStateAction<boolean>>
@@ -62,6 +64,8 @@ function Header({
   let { logoHovered, setLogoHovered } = useContext(RootLayoutContext)!
   const [isDialogOpen, setIsDialogOpen] = useState(false)
 
+  const plausible = usePlausible()
+
   return (
     <Container>
       <div className="flex items-center justify-between">
@@ -78,7 +82,13 @@ function Header({
           />
         </Link>
         <div className="flex items-center gap-x-8">
-          <Button onClick={() => setIsDialogOpen(true)} invert={invert}>
+          <Button
+            onClick={() => {
+              plausible('Roadmap AI Click')
+              setIsDialogOpen(true)
+            }}
+            invert={invert}
+          >
             Get our FREE AI Roadmap
           </Button>
           <button
