@@ -1,4 +1,5 @@
 import { type Metadata } from 'next'
+import Script from 'next/script'
 
 import { RootLayout } from '@/components/RootLayout'
 import { Analytics } from '@vercel/analytics/react'
@@ -50,6 +51,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <PlausibleProvider domain="pixelandbyte.com.au">
           <RootLayout>{children}</RootLayout>
           <Analytics />
+          <Script
+            defer
+            data-website-id="dfid_VjZvzuvWWSsO8wasjue63"
+            data-domain="pixelandbyte.com.au"
+            src="https://datafa.st/js/script.js"
+          />
         </PlausibleProvider>
       </body>
     </html>
