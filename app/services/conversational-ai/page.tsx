@@ -63,10 +63,37 @@ function ContentSection({ title, description }: Content) {
 }
 
 export const metadata: Metadata = {
-  title: 'Our Process',
+  title: 'AI Chatbots Brisbane & Gold Coast | Conversational AI',
   description:
-    'We believe in efficiency and maximizing our resources to provide the best value to our clients.',
+    'Custom chatbot development for Australian businesses. 24/7 customer support, lead capture, and booking automation. Brisbane and Gold Coast AI consulting.',
 }
+
+const industryExamples = [
+  {
+    industry: 'Trades & Services',
+    example: 'Automated quote requests, job booking, and after-hours enquiry handling',
+  },
+  {
+    industry: 'Healthcare',
+    example: 'Patient intake, appointment scheduling, and FAQ handling with HIPAA compliance',
+  },
+  {
+    industry: 'Hospitality',
+    example: 'Reservation management, menu enquiries, and guest request handling',
+  },
+  {
+    industry: 'Real Estate',
+    example: 'Property enquiries, inspection bookings, and lead qualification',
+  },
+  {
+    industry: 'Professional Services',
+    example: 'Client intake, document collection, and appointment scheduling',
+  },
+  {
+    industry: 'Retail & E-commerce',
+    example: 'Product recommendations, order tracking, and returns processing',
+  },
+]
 
 export default function Page() {
   const content = [
@@ -118,6 +145,27 @@ export default function Page() {
           />
         ))}
       </div>
+
+      <Container className="mt-24 sm:mt-32 lg:mt-40">
+        <SectionIntro
+          eyebrow="Industry Applications"
+          title="Chatbots that work for your industry"
+        >
+          <p>
+            Every business is different. Here's how chatbots are transforming
+            operations across various industries.
+          </p>
+        </SectionIntro>
+        <FadeIn className="mt-16">
+          <GridList>
+            {industryExamples.map((item) => (
+              <GridListItem key={item.industry} title={item.industry}>
+                {item.example}
+              </GridListItem>
+            ))}
+          </GridList>
+        </FadeIn>
+      </Container>
 
       <Values />
 

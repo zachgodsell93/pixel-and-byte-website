@@ -64,8 +64,8 @@ function ContentSection({ title, description }: Content) {
 }
 
 export const metadata: Metadata = {
-  title: 'AI Powered Voice Agents',
-  description: 'Advanced AI Voice Agents and Chatbots',
+  title: 'Voice AI Agents Brisbane & Gold Coast',
+  description: 'AI-powered phone agents for Australian businesses. Handle inbound calls, make outbound calls, and provide 24/7 voice support. Brisbane and Gold Coast AI consulting.',
 }
 
 export default function Page() {

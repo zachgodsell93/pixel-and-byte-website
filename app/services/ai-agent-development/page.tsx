@@ -64,10 +64,37 @@ function ContentSection({ title, description }: Content) {
 }
 
 export const metadata: Metadata = {
-  title: 'AI Agent Development',
+  title: 'AI Agent Development Brisbane & Gold Coast',
   description:
-    "Cutting edge AI agents designed to solve complex problems, automate intricate processes, and extend your team's capabilities beyond human limitations.",
+    "Custom AI agents for Australian businesses. Autonomous agents that handle inbox management, scheduling, research, and complex multi-step tasks. Brisbane and Gold Coast AI consulting.",
 }
+
+const agentTypes = [
+  {
+    name: 'Email & Inbox Agent',
+    description: 'Automatically triage, respond to, and escalate emails based on content and priority',
+  },
+  {
+    name: 'Scheduling Agent',
+    description: 'Coordinate meetings, manage calendars, and handle rescheduling autonomously',
+  },
+  {
+    name: 'Research Agent',
+    description: 'Gather information, compile reports, and synthesise findings from multiple sources',
+  },
+  {
+    name: 'Sales Agent',
+    description: 'Qualify leads, follow up with prospects, and update CRM records automatically',
+  },
+  {
+    name: 'Support Agent',
+    description: 'Handle customer queries, troubleshoot issues, and escalate complex cases',
+  },
+  {
+    name: 'Data Agent',
+    description: 'Extract, transform, and analyse data across systems with intelligent processing',
+  },
+]
 
 export default function Page() {
   const content = [
@@ -119,6 +146,27 @@ export default function Page() {
           />
         ))}
       </div>
+
+      <Container className="mt-24 sm:mt-32 lg:mt-40">
+        <SectionIntro
+          eyebrow="Agent Types"
+          title="AI agents for every business function"
+        >
+          <p>
+            From email management to sales automation, we build agents that
+            handle the tasks that eat up your team's time.
+          </p>
+        </SectionIntro>
+        <FadeIn className="mt-16">
+          <GridList>
+            {agentTypes.map((agent) => (
+              <GridListItem key={agent.name} title={agent.name}>
+                {agent.description}
+              </GridListItem>
+            ))}
+          </GridList>
+        </FadeIn>
+      </Container>
 
       <Values />
 

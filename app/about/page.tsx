@@ -192,38 +192,40 @@ export default async function About() {
 
   return (
     <>
-      <PageIntro eyebrow="About us" title="AI Innovation at Scale">
+      <PageIntro eyebrow="About us" title="AI Innovation for Australian Businesses">
         <p>
-          Transforming businesses through intelligent automation and strategic
-          AI implementation.
+          Gold Coast-based AI consultancy helping Brisbane, Gold Coast, and
+          Australian businesses harness the power of automation.
         </p>
         <div className="mt-10 max-w-2xl space-y-6 text-base">
           <p>
-            We are a specialized AI development agency focused on creating
-            practical, powerful solutions that drive real business outcomes. Our
-            team brings together deep technical expertise in autonomous agents,
-            workflow automation, conversational interfaces, and voice AI with
-            strategic consulting experience that ensures technology serves your
-            business goals, not the other way around.
+            We are a specialized AI development agency based on the Gold Coast,
+            focused on creating practical, powerful solutions that drive real
+            business outcomes. Our team brings together deep technical expertise
+            in autonomous agents, workflow automation, conversational
+            interfaces, and voice AI with strategic consulting experience that
+            ensures technology serves your business goals, not the other way
+            around.
           </p>
           <p>
             Founded on the principle that AI should be accessible and impactful
             for organizations of all sizes, we take a collaborative approach to
-            every project. We work closely with our clients to understand their
-            unique challenges, develop tailored AI solutions that integrate
-            seamlessly with existing systems, and provide ongoing support to
-            ensure lasting value. Whether you're looking to automate routine
-            tasks, enhance customer experiences, or gain deeper insights from
-            your data, our proven methodologies and continuous innovation
-            deliver results that matter.
+            every project. We work closely with our clients across Brisbane, the
+            Gold Coast, and throughout Australia to understand their unique
+            challenges, develop tailored AI solutions that integrate seamlessly
+            with existing systems, and provide ongoing support to ensure lasting
+            value. Whether you're looking to automate routine tasks, enhance
+            customer experiences, or gain deeper insights from your data, our
+            proven methodologies and continuous innovation deliver results that
+            matter.
           </p>
         </div>
       </PageIntro>
       <Container className="mt-16">
         <StatList>
-          <StatListItem value="14" label="Businesses adopting AI" />
-          <StatListItem value="93" label="AI Agents Deployed" />
-          <StatListItem value="$4M+" label="Cost Reduction" />
+          <StatListItem value="100+" label="Hours saved weekly per client" />
+          <StatListItem value="2-4" label="Weeks typical delivery" />
+          <StatListItem value="Local" label="Gold Coast based support" />
         </StatList>
       </Container>
 

@@ -200,8 +200,18 @@ function AIServicesTwo() {
 }
 
 export const metadata: Metadata = {
+  title: 'AI Solutions Brisbane & Gold Coast | Pixel & Byte',
   description:
-    'Pixel and Byte empowers you with cutting-edge AI solutions. We make AI integration seamless and straightforward.',
+    'Brisbane & Gold Coast AI consulting. Chatbots, automation, and AI agents for Australian businesses. Making AI simple and practical. Based on the Gold Coast.',
+  keywords: [
+    'AI consulting Brisbane',
+    'Gold Coast AI automation',
+    'Brisbane chatbot development',
+    'AI agents Australia',
+    'workflow automation Gold Coast',
+    'voice AI Brisbane',
+    'AI for small business Australia',
+  ],
 }
 
 function ComingSoon() {
@@ -229,8 +239,9 @@ export default async function Home() {
             <span className="bg-black text-white">White</span>.
           </h1>
           <p className="mt-6 text-xl text-neutral-600">
-            Pixel and Byte delivers AI automation, agents, and chatbots that are
-            easy to implement and understand. No more confusion.
+            Gold Coast-based AI consulting for Australian businesses. We deliver
+            chatbots, automation, and AI agents that are easy to implement and
+            understand. No more confusion.
           </p>
         </FadeIn>
       </Container>

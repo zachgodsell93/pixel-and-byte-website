@@ -157,11 +157,14 @@ function Navigation() {
       </NavigationRow>
       <NavigationRow>
         <NavigationItem href="/about">About Us</NavigationItem>
+        <NavigationItem href="/faq">FAQ</NavigationItem>
+      </NavigationRow>
+      <NavigationRow>
         <NavigationItem href="/contact">Contact Us</NavigationItem>
+        {/* <NavigationItem href="/pricing">Pricing</NavigationItem> */}
       </NavigationRow>
 
       {/* <NavigationRow>
-        <NavigationItem href="/process">Our Process</NavigationItem>
         <NavigationItem href="/blog">Blog</NavigationItem>
       </NavigationRow> */}
     </nav>
@@ -333,11 +336,10 @@ export function RootLayout({ children }: { children: React.ReactNode }) {
 const navigation = {
   main: [
     { name: 'About', href: '/about' },
+    { name: 'FAQ', href: '/faq' },
     { name: 'Contact', href: '/contact' },
-    { name: 'Privacy', href: '#' },
-    { name: 'Terms', href: '#' },
-    // { name: 'Accessibility', href: '#' },
-    // { name: 'Partners', href: '#' },
+    { name: 'Privacy', href: '/legal/privacy' },
+    { name: 'Terms', href: '/legal/terms' },
   ],
   social: [
     {
