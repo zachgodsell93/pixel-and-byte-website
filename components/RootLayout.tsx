@@ -20,7 +20,7 @@ import { SocialMedia } from '@/components/SocialMedia'
 import Image from 'next/image'
 import BwLogo from '@/images/logo-bw-long.png'
 import BwInvertedLogo from '@/images/logo-bw-long.png'
-import EmailDialog from '@/components/EmailDialog'
+import CalendlyDialog from '@/components/CalendlyDialog'
 
 import { usePlausible } from 'next-plausible'
 
@@ -87,12 +87,12 @@ function Header({
           {!expanded && (
             <Button
               onClick={() => {
-                plausible('Roadmap AI Click')
+                plausible('Book Call Click')
                 setIsDialogOpen(true)
               }}
               invert={invert}
             >
-              Get our FREE AI Roadmap
+              Book a Call
             </Button>
           )}
           <button
@@ -118,7 +118,7 @@ function Header({
           </button>
         </div>
       </div>
-      <EmailDialog isOpen={isDialogOpen} setIsOpen={setIsDialogOpen} />
+      <CalendlyDialog isOpen={isDialogOpen} setIsOpen={setIsDialogOpen} />
     </Container>
   )
 }
@@ -184,7 +184,7 @@ function NotificationBanner() {
         <div className="flex flex-col items-center justify-between gap-2 sm:flex-row">
           <div className="flex-1">
             <h2 className="font-display text-center text-sm font-semibold tracking-tight text-white sm:text-left">
-              Get our FREE AI Roadmap
+              Book a Free AI Consultation
             </h2>
           </div>
           <div className="flex-none">
@@ -192,11 +192,12 @@ function NotificationBanner() {
               onClick={() => setIsDialogOpen(true)}
               className="text-sm font-semibold text-white transition-colors hover:text-neutral-300"
             >
-              Download Now →
+              Schedule Now →
             </button>
           </div>
         </div>
       </Container>
+      <CalendlyDialog isOpen={isDialogOpen} setIsOpen={setIsDialogOpen} />
     </div>
   )
 }
