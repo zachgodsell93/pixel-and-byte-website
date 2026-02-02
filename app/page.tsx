@@ -72,13 +72,14 @@ function AIServices() {
   return (
     <>
       <SectionIntro
-        eyebrow="Artificial Intelligence"
-        title="We help you identify, explore and adapt to the new world of AI"
+        eyebrow="Agentic AI Solutions"
+        title="AI that works for you—autonomously, intelligently, 24/7"
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          We are all on AI, we know that it is the future, but we also know that
-          it is difficult to navigate.
+          From AI agents that handle complex multi-step tasks to copilots
+          embedded in your existing tools—we build AI that actually gets work
+          done.
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -94,43 +95,39 @@ function AIServices() {
           </div>
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
             <ListItem
-              title="Autonomous Agent Development"
+              title="Autonomous AI Agents"
               link="/services/ai-agent-development"
             >
-              We specialize in developing sophisticated autonomous AI agents
-              designed to automate and streamline complex tasks. Our agents are
-              built to learn, adapt, and execute processes, including tasks such
-              as automated inbox management, meeting scheduling, and customized
-              workflow operations.
+              Digital workers that reason, plan, and execute. Our autonomous
+              agents handle complex multi-step workflows—from inbox triage and
+              lead qualification to research and reporting—adapting as they
+              learn, with minimal human oversight.
             </ListItem>
             <ListItem
-              title="AI Workflow Automation"
+              title="AI Workflow Orchestration"
               link="/services/ai-workflow-automation"
             >
-              Our team excels in creating intelligent workflow automation
-              solutions. We leverage the latest AI frameworks and develop custom
-              logic to automate key business processes, allowing your team to
-              focus on strategic initiatives and core business functions.
+              Connect your entire tech stack with intelligent automation.
+              Multi-agent systems that coordinate across CRMs, ERPs, and
+              business tools—making decisions in real-time and keeping
+              everything in sync.
             </ListItem>
             <ListItem
-              title="Conversational AI (Chatbots)"
-              link="/services/conversational-ai
-              "
+              title="Conversational AI Assistants"
+              link="/services/conversational-ai"
             >
-              We build AI-driven customer service systems that provide
-              personalized and efficient support. Our solutions include
-              intelligent chatbots capable of resolving complex customer
-              inquiries and sentiment analysis tools that provide valuable
-              insights into customer feedback.
+              AI assistants that understand context, remember conversations, and
+              resolve issues—not just answer FAQs. Deploy across web, mobile,
+              and messaging platforms with seamless handoff to humans when
+              needed.
             </ListItem>
             <ListItem
               title="Voice AI Agents"
               link="/services/ai-powered-voice-agents"
             >
-              We build AI-powered voice assistants that can handle complex
-              tasks, such as scheduling, customer support, and data entry. Our
-              solutions leverage natural language processing and machine
-              learning to provide personalized and efficient interactions.
+              Phone agents that sound natural and handle real conversations.
+              Inbound support, outbound calls, appointment booking—all with
+              real-time intelligence and CRM integration.
             </ListItem>
           </List>
         </div>
@@ -143,44 +140,55 @@ function AIServicesTwo() {
   return (
     <div className="rounded-4xl bg-black pb-10">
       <SectionIntro
-        eyebrow="Data and Consulting"
-        title="We help you identify, explore and respond to new technologies."
+        eyebrow="Knowledge & Strategy"
+        title="AI that knows your business—inside and out"
         className="mt-24 sm:mt-16 sm:pt-16 lg:mt-20 lg:pt-20"
         flip
         invert
       >
         <p>
-          Before AI was barely a sparkle in someones eye, we were already
-          specializing in development and CRM development.
+          Connect AI to your company's knowledge, data, and systems. Build
+          solutions that understand your context and deliver real business
+          intelligence.
         </p>
       </SectionIntro>
       <Container className="mt-16">
         <div className="lg:flex lg:items-center lg:justify-end">
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
             <ListItem
-              title="Enterprise Consulting"
+              title="RAG & Knowledge AI"
               link="/services/enterprise-consultancy"
               invert
             >
               <span className="text-neutral-400">
-                We provide expert guidance and recommendations to help you
-                navigate the complex landscape of AI and machine learning. Our
-                team of consultants will help you identify the right AI
-                solutions for your business and develop a strategy to implement
-                them effectively.
+                AI that actually knows your business. We build RAG (Retrieval
+                Augmented Generation) systems that connect to your documents,
+                databases, and knowledge bases—so your AI gives accurate,
+                context-aware answers grounded in your data.
               </span>
             </ListItem>
             <ListItem
-              title="Data Analytics & BI with AI"
+              title="AI Strategy & Implementation"
+              link="/services/enterprise-consultancy"
+              invert
+            >
+              <span className="text-neutral-400">
+                Cut through the AI hype. We identify high-impact opportunities,
+                build business cases, and implement solutions that deliver ROI.
+                From AI governance to change management—strategic guidance for
+                sustainable AI adoption.
+              </span>
+            </ListItem>
+            <ListItem
+              title="Data Intelligence & Analytics"
               link="/services/ai-powered-business-analytics"
               invert
             >
               <span className="text-neutral-400">
-                We transform raw data into actionable insights with our
-                AI-powered business analytics services. Our team develops custom
-                dashboards and reporting systems that deliver clear,
-                comprehensive visualizations of your business data, enabling
-                informed and strategic decision-making.
+                Transform raw data into decisions. AI-powered dashboards,
+                predictive analytics, and automated reporting that surface
+                insights in real-time—so you can act faster than your
+                competition.
               </span>
             </ListItem>
           </List>

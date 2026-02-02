@@ -63,10 +63,37 @@ function ContentSection({ title, description }: Content) {
 }
 
 export const metadata: Metadata = {
-  title: 'AI Chatbots Brisbane & Gold Coast | Conversational AI',
+  title: 'AI Assistants Brisbane & Gold Coast | Conversational AI',
   description:
-    'Custom chatbot development for Australian businesses. 24/7 customer support, lead capture, and booking automation. Brisbane and Gold Coast AI consulting.',
+    'Intelligent AI assistants for Australian businesses. Context-aware conversations, seamless handoffs, and deep integrations. Brisbane and Gold Coast AI consulting.',
 }
+
+const capabilities = [
+  {
+    name: 'Context-Aware Conversations',
+    description: 'AI that remembers previous interactions and understands the full context of each conversation',
+  },
+  {
+    name: 'Multi-Channel Deployment',
+    description: 'Deploy once, run everywhere—web, mobile, WhatsApp, Messenger, Slack, and more',
+  },
+  {
+    name: 'Seamless Human Handoff',
+    description: 'Intelligent escalation that knows when to bring in a human, with full context transfer',
+  },
+  {
+    name: 'RAG-Powered Knowledge',
+    description: 'Connect to your docs, FAQs, and databases for accurate, grounded responses',
+  },
+  {
+    name: 'Action Execution',
+    description: 'Go beyond answering—book appointments, update records, process orders in real-time',
+  },
+  {
+    name: 'Analytics & Insights',
+    description: 'Understand what customers ask, where AI struggles, and how to continuously improve',
+  },
+]
 
 const industryExamples = [
   {
@@ -75,7 +102,7 @@ const industryExamples = [
   },
   {
     industry: 'Healthcare',
-    example: 'Patient intake, appointment scheduling, and FAQ handling with HIPAA compliance',
+    example: 'Patient intake, appointment scheduling, and FAQ handling with compliance built-in',
   },
   {
     industry: 'Hospitality',
@@ -98,41 +125,41 @@ const industryExamples = [
 export default function Page() {
   const content = [
     {
-      title: 'Custom Bot Development',
+      title: 'Intelligent AI Assistants',
       description:
-        'Design and implement chatbots with nuanced personalities that align perfectly with your brand voice and business objectives.',
+        'Go beyond simple Q&A. Our AI assistants understand context, remember conversation history, and handle complex multi-turn dialogues that feel natural and helpful.',
     },
     {
-      title: 'Contextual Intelligence',
+      title: 'RAG-Powered Knowledge',
       description:
-        'Advanced natural language processing that understands intent, manages complex conversations, and provides human-like interactions.',
+        'Connect your AI to company documents, FAQs, product catalogs, and databases. Every response is grounded in your actual data—accurate, up-to-date, and on-brand.',
     },
     {
-      title: 'Omnichannel Deployment',
+      title: 'Omnichannel Presence',
       description:
-        'Seamless implementation across websites, messaging platforms, mobile apps, and voice interfaces to meet customers wherever they are.',
+        'Deploy across web, mobile, WhatsApp, Messenger, Slack, and more. One AI brain, consistent experience everywhere your customers are.',
     },
     {
-      title: 'Continuous Learning',
+      title: 'Smart Escalation',
       description:
-        'Rigorous training and optimization frameworks that continuously improve bot performance based on real interaction analytics.',
+        'AI that knows its limits. Seamless handoff to human agents with full conversation context—so customers never have to repeat themselves.',
     },
     {
-      title: 'Enterprise Integration',
+      title: 'Action-Oriented',
       description:
-        'Deep integration with your CRM, knowledge bases, and business systems to deliver personalized, data-driven customer experiences.',
+        'Not just answers—actions. Book appointments, process orders, update accounts, trigger workflows. Your AI assistant gets things done.',
     },
   ]
   return (
     <>
       <PageIntro
-        eyebrow="Conversation AI(Chatbots)"
-        title="Conversations that convert, support, and delight – without the human error."
+        eyebrow="Conversational AI Assistants"
+        title="AI that actually helps—not just another FAQ bot"
       >
         <p>
-          Purpose-built conversational experiences that understand context,
-          solve problems, and represent your brand with unprecedented
-          intelligence.
+          Modern AI assistants that understand context, take action, and know
+          when to bring in a human. Built on the latest LLMs with RAG, memory,
+          and deep integrations.
         </p>
       </PageIntro>
 

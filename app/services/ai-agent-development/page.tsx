@@ -99,41 +99,41 @@ const agentTypes = [
 export default function Page() {
   const content = [
     {
-      title: 'Advanced Agent Architecture',
+      title: 'Agentic AI Architecture',
       description:
-        'Custom-designed AI agents with deep reasoning capabilities, engineered to tackle your most sophisticated business problems and operational complexities.',
+        'Purpose-built autonomous agents that reason, plan, and execute. Our agents use advanced reasoning loops to break down complex goals, adapt to changing conditions, and complete multi-step workflows without constant supervision.',
     },
     {
-      title: 'Adaptive Learning Frameworks',
+      title: 'Multi-Agent Orchestration',
       description:
-        'Intelligent systems that continuously learn, improve, and optimize performance through real-world interactions and advanced machine learning techniques.',
+        'Deploy teams of specialised agents that collaborate on complex tasks. Our multi-agent systems coordinate seamlessly—one agent researches, another drafts, a third reviews—working together like a well-oiled team.',
     },
     {
-      title: 'Multi-System Intelligence',
+      title: 'Deep System Integration',
       description:
-        'Develop AI agents capable of seamlessly navigating complex software ecosystems, breaking down technological barriers and connecting disparate business processes.',
+        'Agents that live inside your tech stack. We connect to CRMs, ERPs, email, calendars, databases, and custom APIs—so your agents can take real action, not just provide recommendations.',
     },
     {
-      title: 'Autonomous Decision Making',
+      title: 'Continuous Learning & Memory',
       description:
-        'Create intelligent agents that can analyze intricate scenarios, make strategic decisions, and take proactive actions with minimal human intervention.',
+        'Agents that get smarter over time. Built-in feedback loops and persistent memory mean your AI learns from every interaction, improving accuracy and expanding capabilities as it works.',
     },
     {
-      title: 'Ethical AI Governance',
+      title: 'Responsible AI & Governance',
       description:
-        'Implement robust safeguards and transparent decision-making protocols to ensure reliability, fairness, and accountability in every AI agent deployment.',
+        'Deploy with confidence. Every agent includes human oversight controls, decision audit trails, and configurable guardrails—so you maintain control while benefiting from autonomous operation.',
     },
   ]
   return (
     <>
       <PageIntro
-        eyebrow="AI Agent Development"
-        title="Build intelligent digital teammates that work harder, smarter, and never ask for a coffee break."
+        eyebrow="Autonomous AI Agents"
+        title="Digital workers that reason, plan, and execute—not just respond"
       >
         <p>
-          Cutting-edge AI agents designed to solve complex problems, automate
-          intricate processes, and extend your team's capabilities beyond human
-          limitations.
+          The next generation of AI isn't chatbots—it's autonomous agents that
+          handle complex, multi-step workflows end-to-end. We build AI that
+          thinks ahead, adapts on the fly, and gets real work done.
         </p>
       </PageIntro>
 
