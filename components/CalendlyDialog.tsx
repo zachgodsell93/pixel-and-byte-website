@@ -3,8 +3,8 @@
 import { Fragment, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 
-// Calendly URL - update this with your actual Calendly link
-const CALENDLY_URL = 'https://calendly.com/pixelandbyte/consultation'
+// Calendly URL
+const CALENDLY_URL = 'https://calendly.com/zach-pixelandbyte/30min'
 
 export default function CalendlyDialog({
   isOpen,
