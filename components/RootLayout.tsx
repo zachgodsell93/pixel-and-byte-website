@@ -75,22 +75,26 @@ function Header({
           onMouseEnter={() => setLogoHovered(true)}
           onMouseLeave={() => setLogoHovered(false)}
         >
+          {/* Show logo on mobile only when menu is expanded, always show on desktop */}
           <Logo
-            className="hidden h-8 sm:block"
+            className={clsx('h-8', expanded ? 'block' : 'hidden sm:block')}
             invert={invert}
             filled={logoHovered}
           />
         </Link>
         <div className="flex items-center gap-x-8">
-          <Button
-            onClick={() => {
-              plausible('Roadmap AI Click')
-              setIsDialogOpen(true)
-            }}
-            invert={invert}
-          >
-            Get our FREE AI Roadmap
-          </Button>
+          {/* Hide button when mobile menu is expanded */}
+          {!expanded && (
+            <Button
+              onClick={() => {
+                plausible('Roadmap AI Click')
+                setIsDialogOpen(true)
+              }}
+              invert={invert}
+            >
+              Get our FREE AI Roadmap
+            </Button>
+          )}
           <button
             ref={toggleRef}
             type="button"
